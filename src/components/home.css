@@ -1,0 +1,88 @@
+.login {
+text-align: right;
+}
+.navBar .li{
+    margin-left: 50;
+}
+/* {
+    background-color:#EBF1F5
+} */
+ .aboutSuperDoctor p {
+    max-height: 120px;
+    /* overflow: hidden; */
+}
+.aboutSuperDoctor img {
+    width: 500px;
+    margin-top: 13px;
+    float: left;
+    margin-bottom: 3px;
+    padding-right: 28px;
+}
+.homeCards{
+    display: block;
+
+}
+.homeCards div{
+    display: inline-block;
+    margin-bottom: 10px;
+
+}
+.homeCards div {
+    display: inline-block;
+    margin-left: 50;
+}
+
+
+/*header*/
+.navbar-nav {
+    margin-left: 180px;
+    color: rgb(0, 0, 0);
+  
+
+  }
+  .navbar-nav :first-child {
+    margin-left: 10;
+  }
+  .nav-link {
+    margin-left: 70px;
+    font-size: 15px;
+    
+  }
+  .nav-link a {
+    text-decoration: none;
+    color: black;
+  
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  
+  .headerContainer {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  
+  
+  .navbar-nav > a > a {
+    position: relative;
+  }
+  .navbar-nav > a > a:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: -10px;
+    content: "";
+    display: block;
+    height: 3pt;
+    left: 50%;
+    position: absolute;
+    background: var(--main-color);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+    
+  }
+  .navbar-nav > a:hover > a:after { 
+    width: 100%; 
+    left: 0; 
+  }
+
+  .cardieB{
+      margin-left: 20px;
+  }
