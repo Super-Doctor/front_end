@@ -3,28 +3,53 @@ import Header from "./components/Header/Header";
 import { BrowserRouter, Switch, Route} from "react-router-dom";
 import Department from './components/Departement/Department'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react'
+import Footer from './components/footer'
+import Header from './components/header'
+import Home from './components/home'
 
-function App() {
-  
+
+export default function App() {
   return (
-    <>
-    {/* <Header/> */}
-        {/* <BrowserRouter>
-          <Switch>
-            <Route exact path="/Home">
+    <div>
+       <Header/>
+      <BrowserRouter>
+      <Route exact path="/Home">
+      <Home/>
+          </Route>
+     
+          <Route exact path="/Departments">
+          <Department/>
+          </Route>
+     
+     
+      </BrowserRouter>
+      <Footer/>
+      </div>
+  )
+}
+
+// function App() {
+  
+//   return (
+//     <>
+//     {/* <Header/> */}
+//         {/* <BrowserRouter>
+//           <Switch>
+//             <Route exact path="/Home">
           
-            </Route>
+//             </Route>
         
          
          
-          </Switch>
+//           </Switch>
     
-        </BrowserRouter>
- */}
-  <Department/>
+//         </BrowserRouter>
+//  */}
+ 
     
-    </>
-  );
-}
+//     </>
+//   );
+// }
 
-export default App;
+// export default App;
