@@ -1,12 +1,17 @@
-import React from "react";
+import React,{useContext} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container,Button } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./home";
 import Footer from "./footer";
 import './home.css'
+import { LoginContext } from '../context/login';
+import { When } from 'react-if';
+
+
 
 function Header () {
+  const Login =  useContext(LoginContext)
     return (
       <div>
         <Router>
@@ -31,17 +36,19 @@ function Header () {
               </Nav>
               
             </Container>
+
+            <When condition={!Login.loggedIn}>
+            <Button onClick = {Login.toggleLogInState}>Login</Button>
+          </When>
+
+          <When condition={Login.loggedIn}>
+            
+            <Button onClick = {Login.logout}>Logout</Button>
+          </When>
+
+
           </Navbar>
-          {/* A <Switch> looks through its children <Route>s and
-                  renders the first one that matches the current URL. */}
-          <Switch>
-            <Route path="/aboutus">
-            </Route>
-            <Route path="/departments">
-            </Route>
-            <Route path="/">            
-            </Route>
-          </Switch>
+        
         </Router>
       </div>
     );
