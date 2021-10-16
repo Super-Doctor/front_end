@@ -1,22 +1,15 @@
-import React from "react";
-import { BrowserRouter, Switch, Route} from "react-router-dom";
-import Department from './components/Departement/Department'
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-import Home from './components/Home'
+import React from 'react'
+import Footer from './components/footer'
+import Header from './components/header'
+import Home from './components/home'
 
 
-
-
-function App() {
-  
+export default function App() {
   return (
-    <>
-
-<Home/>
-
-    </>
-  );
+    <div>
+      <Header/>
+      <Home/>
+      <Footer/>
+      </div>
+  )
 }
-
-export default App;

@@ -1,17 +1,15 @@
-import ReactDom from "react-dom";
-import App from "./App";
+import React from 'react';
+import ReactDOM from 'react-dom';
+//import LoginProvider,{LoginContext} from './context/loginContext';
+import App from './App.js';
 
-// import "bootstrap/dist/css/bootstrap.min.css";
-
-
-
-function Main() {
-  return (
-    <>
-   
-          <App />
-      
-    </>
-  );
+class Main extends React.Component {
+  render() {
+    return (
+      <App />
+    )
+  }
 }
-ReactDom.render(<Main />, document.getElementById("root"));
+
+const rootElement = document.getElementById('root');
+ReactDOM.render(<Main />, rootElement);
