@@ -4,7 +4,7 @@ import base64 from 'base-64';
 import jwt from 'jsonwebtoken';
 import cookie from 'react-cookies';
 export const LoginContext = React.createContext(); 
-const API = 'https://super-doctors.herokuapp.com/signin/patient';// .env
+const API = 'https://super-doctors.herokuapp.com/signin';// .env
 
 export default function LoginProvider(props) {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -33,6 +33,8 @@ export default function LoginProvider(props) {
             .set('Access-Control-Allow-Origin', '*');
             validateJwToken(response.body);
 
+            let userData = JSON.stringify(response.body);
+            localStorage.setItem("user" , userData)
             setToggle(false);
 
     },
@@ -46,16 +48,15 @@ export default function LoginProvider(props) {
    const  validateJwToken = (user) => {
         if (user) {
             // the user is logged in
-            console.log("user -------> : " ,user);
             setLoginState(true, user);
 
-            console.log(user.user.token)
 
             cookie.save('token', user.user.token)
-        } else {
-            // the user is NOT logged in
-            setLoginState(false, {});
-        }
+        } 
+        // else {
+        //     // the user is NOT logged in
+        //     setLoginState(false, {});
+        // }
     }
     
     const setLoginState = (loggedIn, user) => {
@@ -66,9 +67,10 @@ export default function LoginProvider(props) {
     }
 
     const logout = () => {
+        window.location.href = "/";
         setLoginState(false, {});
         cookie.remove('token');
-
+        localStorage.removeItem('user');
     }
 
     const can = (capability) => {
@@ -100,7 +102,8 @@ export default function LoginProvider(props) {
         toggleLogInState,
         toggleSignUpState,
         toggSignUp,
-        signUp
+        signUp,
+        setLoginState
     }
 
     return (
