@@ -7,6 +7,7 @@ import SignUp from './components/SignUp-In/SignUp';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { When } from 'react-if';
 import { LoginContext } from './context/login'
+import Departments from './components/Departement/Departments'
 
 
 
@@ -29,13 +30,13 @@ export default class App extends React.Component {
               </Route>
 
               <Route path="/departments">
-
+                <Departments />
               </Route>
 
             </Switch>
           </When>
           <When condition={this.context.toggleLogIn}>
-            
+
             <When condition={!this.context.toggSignUp}>
               <SignIn />
             </When>
