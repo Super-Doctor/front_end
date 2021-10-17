@@ -10,7 +10,6 @@ import All from './All'
 export default function Departments() {
     const [depType, setDepType] = useState('');
 
-
     const [users, setusers] = useState([]);
     useEffect(() => {
         let userData;

@@ -1,7 +1,7 @@
 import React from 'react'
 import Footer from './components/footer'
-import Header from './components/header'
-import Home from './components/home'
+import Header from './components/Header'
+import Home from './components/Home'
 import SignIn from './components/SignUp-In/SignIn'
 import SignUp from './components/SignUp-In/SignUp';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -20,23 +20,23 @@ export default class App extends React.Component {
  
   static contextType = LoginContext;
 
-  componentDidMount () {
-   let userData = JSON.parse(localStorage.getItem('user'))
+  // componentDidMount () {
+  //  let userData = JSON.parse(localStorage.getItem('user'))
 
-  if(userData) {
-    this.context.setLoginState(true , userData)
+  // if(userData) {
+  //   this.context.setLoginState(true , userData)
 
-  }
+  // }
 
-  }
+  // }
 
   render() {
     return (
       <div>
 
+            <Header />
         <Router >
           <When condition={!this.context.toggleLogIn } >
-            <Header />
             <Switch>
               <Route exact path="/">
                 <Home />

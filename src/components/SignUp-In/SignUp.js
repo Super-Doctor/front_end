@@ -38,16 +38,18 @@ export default function SignUp() {
                     <Form.Label as="legend" column sm={2}>
                         Gender
                     </Form.Label>
-                    <Col sm={10}>
+                    <Col sm={10} onChange={handleChange}>
                         <Form.Check
                             type="radio"
                             label=" ♂️ Male"
+                            value = "male"
                             name="formHorizontalRadios"
                             id="formHorizontalRadios1"
                         />
                         <Form.Check
                             type="radio"
                             label="♀️ Female"
+                            value = "female"
                             name="formHorizontalRadios"
                             id="formHorizontalRadios2"
                         />
