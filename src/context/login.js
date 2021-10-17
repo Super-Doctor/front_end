@@ -45,6 +45,7 @@ export default function LoginProvider(props) {
             // let userData = JSON.stringify(response.body);
             // localStorage.setItem("user" , userData)
             setToggle(false);
+    
 
 
     },
@@ -57,7 +58,7 @@ export default function LoginProvider(props) {
         //  "roleId": 1,
         //   "gender" : "female"
 
-        
+
 
         toggleLogInState();
     }

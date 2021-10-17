@@ -1,43 +1,61 @@
 import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import { LoginContext } from '../../context/login';
+import RecordList from './RecordList';
 
 export default function PatientsList() {
-    const API = "https://super-doctors.herokuapp.com/AllAppointments";
+    const API = "https://super-doctors.herokuapp.com/doctorPatients";
 
     const Login = useContext(LoginContext);
-    const [state, setstate] = useState(false);
+    const [patientId, setPatient] = useState('');
 
-
-    // useEffect(() => {
-    //     let userData = JSON.parse(localStorage.getItem('user'))
-    //     if (userData) {
-    //         Login.setLoginState(true, userData);
-    //         setstate(true);
-    //     }
-
-    // }, []);
-    const [patientsList, setPatients] = useState([]);
+    const [recordsList, setRecords] = useState([]);
 
     useEffect(async () => {
-        if (state) {
-            const patients = await axios.get(`${API}/${Login.user.user.id}`);
-            console.log("1- From Api---> ", patients.data);
-
-            setPatients([...patientsList, ...patients.data]);
-            console.log("2- patientsList---> ", ...patientsList);
+        if(Login.user) {
+            let records = await axios.get(`${API}/${Login.user.user.id}`);
+            console.log("1- From Api---> ", records.data);
+    
+            setRecords(records.data);
+            console.log("2- recordsList---> ", records.data);
+            return true;
         }
-    }, [state]);
+
+
+    }, [Login.user]);
+
+
+    function showRecord(patientId) {
+        setPatient(patientId)
+        console.log(patientId);
+    }
+
+  
 
     return (
-        <div>
-            <h1>Patients List</h1>
-            {patientsList.map((patient) => {
-                return (
-                    <li key = {patient.id}>{`Name : ${patient.patientName}    `} <span>{`   Date : ${patient.Date}`}</span></li> 
+        <>
+          
+            {patientId != '' &&
+                <>
+                    <RecordList users={recordsList} patientId={patientId} />
+                </>
 
-                )
-            })}
-        </div>
+            }
+            {
+                patientId == '' &&
+                <div>
+                    <h1 >Patients List</h1>
+                    {recordsList.map((record) => {
+                        return (
+                            <li onClick={() => showRecord(`${record.patientId}`)} key={record.id}>{`Medical Case : ${record.medicalCase}    `} <span>{`  CheckIn Date : ${record.checkInDate}`}</span></li>
+
+                        )
+                    })}
+
+
+                </div>
+            }
+        </>
+
     )
 }
