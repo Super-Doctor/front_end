@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import HomeSlides from "./slideShow";
-import Departments from "./departments";
+import './home.css'
 function Home (){
         return (
             <div>
@@ -15,7 +15,7 @@ function Home (){
 
                         The practice is blessed with a very commited team of staff, several of them who have been with the practice for many years.</p>
                 </div>
-                <Departments/>
+            
             </div>
         )
     
