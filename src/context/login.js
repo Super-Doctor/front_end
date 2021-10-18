@@ -3,7 +3,10 @@ import superagent from "superagent";
 import base64 from 'base-64';
 import jwt from 'jsonwebtoken';
 import cookie from 'react-cookies';
+import axios from "axios";
 export const LoginContext = React.createContext(); 
+
+
 const API = 'https://super-doctors.herokuapp.com/signin';// .env
 
 export default function LoginProvider(props) {
@@ -50,13 +53,66 @@ export default function LoginProvider(props) {
 
     },
 
-     signUp =(user)=>{
+     signUp =async (user)=>{
+         const API = 'https://super-doctors.herokuapp.com'
          console.log("Sign Up User ---> ",user);
         //  "userName": "ghidaa",
         //  "email": "ghidaa@gmail.com",
         //  "password": "ghidaa",
         //  "roleId": 1,
         //   "gender" : "female"
+
+        let userInfo = {
+            userName : `${user.first} ${user.mid} ${user.last}`,
+            email : user.email,
+            password :user.password ,
+            roleId : 1,
+            gender : user. formHorizontalRadios,
+        }
+
+        console.log('userInfo',userInfo);
+
+        let response ;
+     await  axios
+        .post(`${API}/signup` , userInfo)
+  
+        .then((res) => {
+          console.log('SignUp : ',res.data);
+          response = res.data.patient;
+  
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    
+
+        let personalInfo = {
+            patientId : response.id,
+            address : user.address,
+            phoneNumber : user.phone,
+            secondaryNumber: user.secPhone,
+            medicalHistory : "Null"
+        }
+
+        
+        await  axios
+        .post(`${API}/addInfo/patient` ,{ headers: {"Authorization" : `Bearer ${response.token}`} }, personalInfo)
+        
+  
+        .then((res) => {
+          console.log("Set Personal Info ",res.data);
+  
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+    
+
+
+
+
+
 
 
 
