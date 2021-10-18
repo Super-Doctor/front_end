@@ -18,22 +18,13 @@ export default function RecordList(props) {
     const API = "https://super-doctors.herokuapp.com/patientRecords";
 
     const Login = useContext(LoginContext);
-    const [state, setstate] = useState(false);
 
-    const [recordsList, setrecordsList] = useState([]);
 
-    useEffect(() => {
-        let userData = JSON.parse(localStorage.getItem('user'))
-        if (userData) {
-            Login.setLoginState(true, userData);
-            setstate(true);
-        }
-
-    }, []);
+   
     const [recordsPatientList, setRecordsPatientList] = useState([]);
 
     useEffect(async () => {
-        if (state) {
+      
             const recordsLists = await axios.get(`${API}/${props.patientId}`);
             // const record=`https://super-doctors.herokuapp.com/medicalinfos/${Login.user.user.id}`;
             console.log(recordsLists.data);
@@ -41,8 +32,8 @@ export default function RecordList(props) {
 
             setRecordsPatientList([...recordsPatientList, recordsLists.data]);
             console.log("2- recordsList---> ", recordsLists.data);
-        }
-    }, [state]);
+        
+    }, []);
 
    
 

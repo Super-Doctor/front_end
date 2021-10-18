@@ -9,14 +9,14 @@ export default function Appointments() {
     const [state, setstate] = useState(false);
 
 
-    useEffect(() => {
-        let userData = JSON.parse(localStorage.getItem('user'))
-        if (userData) {
-            Login.setLoginState(true, userData);
-            setstate(true);
-        }
+    // useEffect(() => {
+    //     let userData = JSON.parse(localStorage.getItem('user'))
+    //     if (userData) {
+    //         Login.setLoginState(true, userData);
+    //         setstate(true);
+    //     }
 
-    }, []);
+    // }, []);
     const [patientsList, setPatients] = useState([]);
 
     useEffect(async () => {

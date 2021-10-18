@@ -4,19 +4,25 @@ text-align: right;
 .navBar .li{
     margin-left: 50;
 }
-/* {
-    background-color:#EBF1F5
-} */
+
+.aboutSuperDoctor{
+  width: 100%;
+}
  .aboutSuperDoctor p {
-    max-height: 120px;
-    /* overflow: hidden; */
+   width: 60%;
+   float: right;
+   padding-top: 100px;
+   font-size: larger;
+   letter-spacing: 2px;
+   font-weight: 450;
+ 
 }
 .aboutSuperDoctor img {
-    width: 500px;
+    width: 35%;
     margin-top: 13px;
     float: left;
     margin-bottom: 3px;
-    padding-right: 28px;
+    padding-left: 50px;
 }
 .homeCards{
     display: block;
@@ -90,4 +96,8 @@ text-align: right;
 
  .dropdown{
    margin-right: 100px;
+ }
+
+ .home{
+   margin-bottom: 600px;
  }
