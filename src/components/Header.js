@@ -66,6 +66,7 @@ function Header() {
                     <Dropdown.Menu className='menuItems'>
                       <Dropdown.Item href="/profile">{Login.user.user.userName.toUpperCase()}</Dropdown.Item>
                       <Dropdown.Item href="/patientslist" >Patients List</Dropdown.Item>
+                      <Dropdown.Item  href="/patientsAppointment" >My Appointments</Dropdown.Item>
                       <Dropdown.Item >Patient Item</Dropdown.Item>
                       <Button onClick={Login.logout}>Logout</Button>
                     </Dropdown.Menu>
@@ -91,6 +92,7 @@ function Header() {
                         <Dropdown.Item href="/profile">{`Dr. ${Login.user.user.userName.toUpperCase()}`}</Dropdown.Item>
                         <Dropdown.Item href="/appointments"> My Appointments </Dropdown.Item>
                         <Dropdown.Item href="/patientslist" >Patients List</Dropdown.Item>
+                        
                         <Button onClick={Login.logout}>Logout</Button>
                       </Dropdown.Menu>
                     </Dropdown>
