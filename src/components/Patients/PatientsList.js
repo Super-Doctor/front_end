@@ -15,10 +15,10 @@ export default function PatientsList() {
     useEffect(async () => {
         if(Login.user) {
             let records = await axios.get(`${API}/${Login.user.user.id}`);
-            console.log("1- From Api---> ", records.data);
+            // console.log("1- From Api---> ", records.data);
     
             setRecords(records.data);
-            console.log("2- recordsList---> ", records.data);
+            // console.log("2- recordsList---> ", records.data);
             return true;
         }
 
@@ -34,7 +34,7 @@ export default function PatientsList() {
   
 
     return (
-        <>
+        <>  
           
             {patientId != '' &&
                 <>
@@ -46,7 +46,7 @@ export default function PatientsList() {
             {
                 patientId == '' &&
                 <div>
-                    <h1 >Patients List</h1>
+                  <h1 >Patients List</h1>
                     {recordsList.map((record) => {
                         return (
                             <li onClick={() => showRecord(`${record.patientId}`)} key={record.id}>{`Medical Case : ${record.medicalCase}    `} <span>{`  CheckIn Date : ${record.checkInDate}`}</span></li>

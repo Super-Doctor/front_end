@@ -20,84 +20,70 @@ export default function RecordList(props) {
     const Login = useContext(LoginContext);
 
 
-   
-    const [recordsPatientList, setRecordsPatientList] = useState([]);
+
+    const [recordsPatientList, setRecordsPatientList] = useState({});
 
     useEffect(async () => {
-      
-            const recordsLists = await axios.get(`${API}/${props.patientId}`);
-            // const record=`https://super-doctors.herokuapp.com/medicalinfos/${Login.user.user.id}`;
-            console.log(recordsLists.data);
-            console.log("1- From Api---> ", recordsLists);
 
-            setRecordsPatientList([...recordsPatientList, recordsLists.data]);
-            console.log("2- recordsList---> ", recordsLists.data);
-        
+        const recordsLists = await axios.get(`${API}/${props.patientId}`);
+        // const record=`https://super-doctors.herokuapp.com/medicalinfos/${Login.user.user.id}`;
+        console.log(recordsLists.data);
+
+        setRecordsPatientList( recordsLists.data);
+        console.log("2- From Api---> ", recordsLists.data);
+
     }, []);
 
-   
-
-
+    console.log('Before Return =====>',recordsPatientList)
     return (
         <>
-            {/* {patientId != '' &&
-                <>
-                    <RecordList  patientId={patientId} />
-                </>
+            <h1>Patient Records</h1>
+            <Button>Start Chat</Button>
+        
 
-            } */}
-            {
+            { recordsPatientList.patientRecords &&  
                 <div>
                     {
 
-    recordsPatientList.map((record,index)=>{
-       
-    //    if(props.patientId==recordsList.patientId){
-           return(
-            <Card style={{display:"inline-block"}}sx={{ maxWidth: 345 }} className='cardieB'>
-            <CardActionArea>
-                <CardMedia
-                    component="img"
-                    height="300"
-                    image='https://thumbs.dreamstime.com/b/boy-girl-doctors-cartoon-characters-profession-s-costume-doctor-vector-illustration-male-female-doctors-cartoon-147440124.jpg'
-                    alt="eyes"
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                       Name: {record.patientInfo.userName}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                   Gender: {record.patientInfo.gender}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                    Doctor Report: {record.patientRecords[0].doctorReport}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                    Medical Case: {record.patientRecords[0].medicalCase}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-            {/* <CardActions>
-                <Button size="small" color="primary">
-                    Read More
-                </Button>
-            </CardActions> */}
-        </Card>
+                        recordsPatientList.patientRecords.map((record, index) => {
+
+                            //    if(props.patientId==recordsList.patientId){
+                            return (
+                                <Card style={{ display: "inline-block" }} sx={{ maxWidth: 345 }} className='cardieB'>
+                                    <CardActionArea>
+                                        <CardMedia
+                                            component="img"
+                                            height="300"
+                                            image='https://thumbs.dreamstime.com/b/boy-girl-doctors-cartoon-characters-profession-s-costume-doctor-vector-illustration-male-female-doctors-cartoon-147440124.jpg'
+                                            alt="eyes"
+                                        />
+                                        <CardContent>
+                                            <Typography gutterBottom variant="h5" component="div">
+                                                Name: { recordsPatientList.patientInfo.userName}
+                                            </Typography>
+                                            <Typography variant="body2" color="text.secondary">
+                                                Gender: { recordsPatientList.patientInfo.gender}
+                                            </Typography>
+                                            <Typography variant="body2" color="text.secondary">
+                                                Doctor Report: {record.doctorReport}
+                                            </Typography>
+                                            <Typography variant="body2" color="text.secondary">
+                                                Medical Case: {record.medicalCase}
+                                            </Typography>
+                                        </CardContent>
+                                    </CardActionArea>
+                             
+                                </Card>
 
 
-           )
+                            )
 
 
-       //}
-    })
-}
-                    {/* <h1>Patients List</h1> */}
-                    {/* {this.props.patientId.map((record) => {
-                        return (
-                            <li  key={record.id}>{`Name : ${record.doctorName}    `} <span>{`   Date : ${record.checkInDate}`}</span></li>
+                            //}
+                        })
+                    }
 
-                        )
-                    })} */}
+
 
 
                 </div>
@@ -106,75 +92,3 @@ export default function RecordList(props) {
 
     )
 }
-
-
-
-
-
-
-
-
-
-
-
-// class RecordList extends React.Component {
-//     constructor(props) {
-//         super(props)
-       
-//     }
-
-
-//     render() {
-//         return (
-//             <div>
-//                 {/* <h1>{this.props.patientId}</h1> */}
-   
-
-                
-//             {
-
-//                 this.props.users.map((doctor,index)=>{
-//                    if(this.props.doctorId==this.props.depType){
-//                        return(
-//                         <Card style={{display:"inline-block"}}sx={{ maxWidth: 345 }} className='cardieB'>
-//                         <CardActionArea>
-//                             <CardMedia
-//                                 component="img"
-//                                 height="300"
-//                                 image='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-mDcL0xvdWU9s0ENNJFFE2tkIsZYHZj5stQ&usqp=CAU'
-//                                 alt="eyes"
-//                             />
-//                             <CardContent>
-//                                 <Typography gutterBottom variant="h5" component="div">
-//                                    Name: {doctor.doctorName}
-//                                 </Typography>
-//                                 <Typography variant="body2" color="text.secondary">
-//                                 Medical Case: {doctor.medicalCase}
-//                                 </Typography>
-//                                 <Typography variant="body2" color="text.secondary">
-//                                Status: {doctor.status}
-//                                 </Typography>
-//                             </CardContent>
-//                         </CardActionArea>
-//                         <CardActions>
-//                             <Button size="small" color="primary">
-//                                 Read More
-//                             </Button>
-//                         </CardActions>
-//                     </Card>
-
-
-//                        )
-
-
-//                    }
-//                 })
-//             }
-            
-//             </div>
-
-//         )
-//     }
-// }
-
-// export default RecordList
