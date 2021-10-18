@@ -24,6 +24,7 @@ class HomeSlides extends React.Component {
                             <p>Providing public healthcare facilities with the necessary technology to ensure the best healthcare quality </p>
                         </Carousel.Caption>
                     </Carousel.Item>
+
                     <Carousel.Item interval={500}>
                         <img
                             className="d-block w-100"
@@ -36,6 +37,7 @@ class HomeSlides extends React.Component {
                             <p>Enriching healthcare through knowledge</p>
                         </Carousel.Caption>
                     </Carousel.Item>
+
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
@@ -44,11 +46,12 @@ class HomeSlides extends React.Component {
                             height='500'
                         />
                         <Carousel.Caption style={{ backgroundColor: 'rgba(0,0,0,.8)' }}>
-                            <p> Medical application  provide healthcare
+                            <p> Medical application provide healthcare
                                 professionals, patients, and the public with a growing
                                 number of specialized tools and resources.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
+
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
@@ -60,6 +63,7 @@ class HomeSlides extends React.Component {
                             <p>We defined target audience by the role of thegroup(s) who would use the app as  from the app description</p>
                         </Carousel.Caption>
                     </Carousel.Item>
+                    
                     <Carousel.Item>
                         <img
                             className="d-block w-100"

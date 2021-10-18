@@ -8,17 +8,24 @@ const API = 'https://super-doctors.herokuapp.com/signin';// .env
 
 export default function LoginProvider(props) {
     const [loggedIn, setLoggedIn] = useState(false);
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState(null);
     const[toggleLogIn , setToggle] = useState(false);
     const[toggSignUp , setSignUp] = useState(false);
+
+
 
     // initial render
     useEffect(() => {
         const qs = new URLSearchParams(window.location.search);
-        const cookieToken = cookie.load('auth');
+        const cookieToken = cookie.load('token');
         const token = qs.get('token') || cookieToken || null;
-        validateJwToken(token);
+        console.log("token From the first load : " , token);
+        validateJwToken(token );
     }, []);
+
+  
+
+
     
     const login = async (email, password) => {
         // console.log(email,'<------>', password);
@@ -31,32 +38,76 @@ export default function LoginProvider(props) {
         const response = await superagent.get(`${API}`)
             .set('authorization', `Basic ${encodedUsernameAndPassword}`)
             .set('Access-Control-Allow-Origin', '*');
-            validateJwToken(response.body);
+            validateJwToken(response.body.user.token , response.body);
 
-            let userData = JSON.stringify(response.body);
-            localStorage.setItem("user" , userData)
+            console.log('from logIn',response.body);
+
+            // let userData = JSON.stringify(response.body);
+            // localStorage.setItem("user" , userData)
             setToggle(false);
+    
+
 
     },
 
      signUp =(user)=>{
-         console.log("user ---> ",user);
+         console.log("Sign Up User ---> ",user);
+        //  "userName": "ghidaa",
+        //  "email": "ghidaa@gmail.com",
+        //  "password": "ghidaa",
+        //  "roleId": 1,
+        //   "gender" : "female"
+
+
+
         toggleLogInState();
     }
     
 
-   const  validateJwToken = (user) => {
+   const  validateJwToken = async (token,user) => {
         if (user) {
             // the user is logged in
             setLoginState(true, user);
+            console.log('Token : ',token);
 
-
-            cookie.save('token', user.user.token)
+            cookie.save('token', token)
         } 
-        // else {
-        //     // the user is NOT logged in
-        //     setLoginState(false, {});
-        // }
+       else {
+            // the user is NOT logged in
+             const cookieToken = cookie.load('token');
+             if(cookieToken) {
+                 let userData = jwt.decode(cookieToken);
+                //  const response = await superagent.get(`https://super-doctors.herokuapp.com/roles`);
+
+                //  let capabilities = response.body.filter(role=>{
+                //      if (role.id == userData.roleId) {return true}
+                //  })
+
+                 let userFromToken = {
+                    user: {
+                                token: userData.token,
+                                id:  userData.id,
+                                userName: userData.userName,
+                                email:  userData.email,
+                                departmentId: userData.departmentId,
+                                roleId:userData.roleId ,
+                                gender: userData.gender
+                              
+                            } ,
+                            capabilities:     userData.capabilities
+
+                 }
+
+                 console.log('userFromToken : '  ,userFromToken);
+
+                 setLoginState(true, userFromToken);
+
+             } else {
+                setLoginState(false, null);
+
+             }
+
+        }
     }
     
     const setLoginState = (loggedIn, user) => {
@@ -67,10 +118,12 @@ export default function LoginProvider(props) {
     }
 
     const logout = () => {
-        window.location.href = "/";
-        setLoginState(false, {});
         cookie.remove('token');
-        localStorage.removeItem('user');
+        setLoginState(false, null);
+        window.location.href = "/";
+       
+     
+        // localStorage.removeItem('user');
     }
 
     const can = (capability) => {

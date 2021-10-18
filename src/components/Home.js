@@ -3,7 +3,7 @@ import HomeSlides from "./slideShow";
 import './home.css'
 function Home (){
         return (
-            <div>
+            <div className="home">
                 <div>
                     <HomeSlides />
                 </div>

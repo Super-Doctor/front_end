@@ -3,7 +3,7 @@ import React, { useContext, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Nav, Container, Button, Dropdown } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Home from "./home";
+import Home from "./Home";
 import Footer from "./footer";
 import './home.css'
 
@@ -14,13 +14,9 @@ import { When } from 'react-if';
 
 function Header() {
   const Login = useContext(LoginContext)
-  useEffect(() => {
-    let userData = JSON.parse(localStorage.getItem('user'))
-    if (userData) {
-      Login.setLoginState(true, userData)
-    }
+ 
+ 
 
-  }, []);
   return (
     <div>
       <Router>
@@ -46,19 +42,85 @@ function Header() {
             </Nav>
 
           </Container>
-          {console.log(Login.loggedIn)}
-          <When condition={!Login.loggedIn}>
+          <When condition={!Login.loggedIn && !Login.user}>
+
             <Button onClick={Login.toggleLogInState}>Login</Button>
           </When>
 
-          <When condition={Login.loggedIn}>
+          <When condition={Login.loggedIn && Login.user}>
 
 
-            {/* Patient View*/}
+            {/* <>
+                <div className="dropdown">
+                  <Dropdown className="d-inline mx-2" >
+                    <Dropdown.Toggle id="dropdown-autoclose-true">
+                      <img className='userImg'
+                        src='https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png'
+                        height='20px'
+                        width='20px'
+                      />
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu className='menuItems'>
+                      <Dropdown.Item >{Login.user.user.userName.toUpperCase()}</Dropdown.Item>
+                      <Dropdown.Item >Patient Item</Dropdown.Item>
+                      <Dropdown.Item >Patient Item</Dropdown.Item>
+                      <Button onClick={Login.logout}>Logout</Button>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </div>
+              </> */}
 
-            {Login.loggedIn &&
+            {Login.user && Login.user.user.roleId == 1 &&
               <>
-                <When condition={Login.user.user.roleId == 1}>
+                <div className="dropdown">
+                  <Dropdown className="d-inline mx-2" >
+                    <Dropdown.Toggle id="dropdown-autoclose-true">
+                      <img className='userImg'
+                        src='https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png'
+                        height='20px'
+                        width='20px'
+                      />
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu className='menuItems'>
+                      <Dropdown.Item href="/profile">{Login.user.user.userName.toUpperCase()}</Dropdown.Item>
+                      <Dropdown.Item >Patient Item</Dropdown.Item>
+                      <Dropdown.Item >Patient Item</Dropdown.Item>
+                      <Button onClick={Login.logout}>Logout</Button>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </div>
+              </>
+            }
+
+
+{Login.user && Login.user.user.roleId == 2 &&
+              <>
+                  <div className="dropdown">
+                    <Dropdown className="d-inline mx-2" >
+                      <Dropdown.Toggle id="dropdown-autoclose-true">
+                        <img className='userImg'
+                          src='https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png'
+                          height='20px'
+                          width='20px'
+                        />
+                      </Dropdown.Toggle>
+
+                      <Dropdown.Menu className='menuItems'>
+                        <Dropdown.Item href="/profile">{`Dr. ${Login.user.user.userName.toUpperCase()}`}</Dropdown.Item>
+                        <Dropdown.Item href="/appointments"> My Appointments </Dropdown.Item>
+                        <Dropdown.Item href="/patientslist" >Patients List</Dropdown.Item>
+                        <Button onClick={Login.logout}>Logout</Button>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </div>
+              </>
+            }
+
+            
+
+
+
+            {/* <When condition={Login.user.user.roleId == 1}>
                   <div className="dropdown">
                     <Dropdown className="d-inline mx-2" >
                       <Dropdown.Toggle id="dropdown-autoclose-true">
@@ -75,13 +137,12 @@ function Header() {
                         <Button onClick={Login.logout}>Logout</Button>
                       </Dropdown.Menu>
                     </Dropdown>
-                    {/* <Button onClick={Login.logout}>Logout</Button> */}
                   </div>
                 </When>
 
 
 
-                {/* Doctor View*/}
+             
                 <When condition={Login.user.user.roleId == 2}>
                   <div className="dropdown">
                     <Dropdown className="d-inline mx-2" >
@@ -100,12 +161,11 @@ function Header() {
                         <Button onClick={Login.logout}>Logout</Button>
                       </Dropdown.Menu>
                     </Dropdown>
-                    {/* <Button onClick={Login.logout}>Logout</Button> */}
                   </div>
-                </When>
-              </>
+                </When> */}
 
-            }
+
+
 
 
           </When>
