@@ -1,4 +1,6 @@
-import React from 'react'
+// import React from 'react'
+import React, { useContext } from 'react';
+
 import Footer from './components/footer'
 import Header from './components/Header'
 import Home from './components/Home'
@@ -7,16 +9,47 @@ import SignUp from './components/SignUp-In/SignUp';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { When } from 'react-if';
 import { LoginContext } from './context/login'
+import { If, Else, Then } from 'react-if';
 import Departments from './components/Departement/Departments'
 import PatientsList from './components/Patients/PatientsList'
 import Profile from './components/Profile/Profile'
 import Appointments from './components/Appointments/Appointments'
+import Auth from './context/auth'
+import axios from 'axios';
+import AddModal from './components/Patients/AddModal'
+
 
 import Modals from './components/Departement/model'
 
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
 
+    this.state = { show: false, appointmentData: [] };
+  }
+
+  showmodal = () => {
+    this.setState({
+      show: !this.state.show,
+    });
+    let getDoctorAppointment = async (doctorId) => {
+      let appointmentsLink = `https://super-doctors.herokuapp.com/AllAppointments/${doctorId}`;
+
+      await axios
+        .get(appointmentsLink)
+        .then((res) => {
+          this.setState({
+            appointmentData: res,
+          });
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+  };
+  // static logincontext = useContext(LoginContext);
  
   static contextType = LoginContext;
 
@@ -50,7 +83,36 @@ export default class App extends React.Component {
               </Route>
 
               <Route path="/patientslist">
-                <PatientsList/>
+                {console.log(this.context.userCapability)};
+              {this.context.userCapability>4 ?
+              <>
+              <PatientsList/>
+            
+               <button onClick={this.showmodal}>Update medical information
+               <AddModal appointmentData={this.state.appointmentData}
+                      // doctorId={this.props.users[index].user.id}
+                      showmodalFunc={this.showmodal}
+                      showmodal={this.state.show}/>
+         
+               </button>
+               
+              </> :<PatientsList/>}
+              
+              {/* <Auth capability="update-medicalRecord">
+              <PatientsList/>
+                <h2>you can read this!!</h2>
+                <button>Add more information</button>
+
+            </Auth>
+            <Auth capability="read">
+            <PatientsList/>
+                <h2>you can read thccccccis!!</h2>
+            </Auth>
+                 */}
+                {/* <Else>
+                    <h2>you don't have a permission to control the settings!</h2>
+                  </Else> */}
+                {/* </When> */}
               </Route>
 
 

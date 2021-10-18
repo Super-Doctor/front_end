@@ -3,7 +3,10 @@ import superagent from "superagent";
 import base64 from 'base-64';
 import jwt from 'jsonwebtoken';
 import cookie from 'react-cookies';
+import axios from "axios";
 export const LoginContext = React.createContext(); 
+
+
 const API = 'https://super-doctors.herokuapp.com/signin';// .env
 
 export default function LoginProvider(props) {
@@ -11,6 +14,8 @@ export default function LoginProvider(props) {
     const [user, setUser] = useState(null);
     const[toggleLogIn , setToggle] = useState(false);
     const[toggSignUp , setSignUp] = useState(false);
+    const [userCapability, setuserCapability] = useState(1);
+
 
 
 
@@ -21,6 +26,11 @@ export default function LoginProvider(props) {
         const token = qs.get('token') || cookieToken || null;
         console.log("token From the first load : " , token);
         validateJwToken(token );
+        const capability = cookie.load('capability');
+        console.log(">>>>>>>>>>>>>>>>>>>",capability);
+    if (capability) {
+      setuserCapability(JSON.parse(capability));
+    }
     }, []);
 
   
@@ -38,6 +48,11 @@ export default function LoginProvider(props) {
         const response = await superagent.get(`${API}`)
             .set('authorization', `Basic ${encodedUsernameAndPassword}`)
             .set('Access-Control-Allow-Origin', '*');
+            console.log('response.body.user',response.body.capabilities.length);
+            setuserCapability(response.body.capabilities.length);
+            console.log(userCapability);
+            cookie.save('capability', JSON.stringify(response.body.capabilities.length));
+
             validateJwToken(response.body.user.token , response.body);
 
             console.log('from logIn',response.body);
@@ -50,13 +65,66 @@ export default function LoginProvider(props) {
 
     },
 
-     signUp =(user)=>{
+     signUp =async (user)=>{
+         const API = 'https://super-doctors.herokuapp.com'
          console.log("Sign Up User ---> ",user);
         //  "userName": "ghidaa",
         //  "email": "ghidaa@gmail.com",
         //  "password": "ghidaa",
         //  "roleId": 1,
         //   "gender" : "female"
+
+        let userInfo = {
+            userName : `${user.first} ${user.mid} ${user.last}`,
+            email : user.email,
+            password :user.password ,
+            roleId : 1,
+            gender : user. formHorizontalRadios,
+        }
+
+        console.log('userInfo',userInfo);
+
+        let response ;
+     await  axios
+        .post(`${API}/signup` , userInfo)
+  
+        .then((res) => {
+          console.log('SignUp : ',res.data);
+          response = res.data.patient;
+  
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    
+
+        let personalInfo = {
+            patientId : response.id,
+            address : user.address,
+            phoneNumber : user.phone,
+            secondaryNumber: user.secPhone,
+            medicalHistory : "Null"
+        }
+
+        
+        await  axios
+        .post(`${API}/addInfo/patient` ,{ headers: {"Authorization" : `Bearer ${response.token}`} }, personalInfo)
+        
+  
+        .then((res) => {
+          console.log("Set Personal Info ",res.data);
+  
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+    
+
+
+
+
+
 
 
 
@@ -71,6 +139,7 @@ export default function LoginProvider(props) {
             console.log('Token : ',token);
 
             cookie.save('token', token)
+            
         } 
        else {
             // the user is NOT logged in
@@ -98,9 +167,16 @@ export default function LoginProvider(props) {
 
                  }
 
-                 console.log('userFromToken : '  ,userFromToken);
+                 console.log('userFromToken : '  ,userFromToken.capabilities);
+                //  const capability = cookie.load('capability');
+                 const capability = userFromToken.capabilities;
 
-                 setLoginState(true, userFromToken);
+                 console.log(">>>>>>>>>>>>>>>>>>>",capability);
+             if (capability) {
+                setLoginState(true, userFromToken);
+
+               setuserCapability(JSON.parse(capability));
+             }
 
              } else {
                 setLoginState(false, null);
@@ -156,7 +232,9 @@ export default function LoginProvider(props) {
         toggleSignUpState,
         toggSignUp,
         signUp,
-        setLoginState
+        setLoginState,
+        userCapability,
+         setuserCapability
     }
 
     return (

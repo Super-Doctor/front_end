@@ -6,28 +6,18 @@ export default function Appointments() {
     const API = "https://super-doctors.herokuapp.com/AllAppointments";
 
     const Login = useContext(LoginContext);
-    const [state, setstate] = useState(false);
-
-
-    // useEffect(() => {
-    //     let userData = JSON.parse(localStorage.getItem('user'))
-    //     if (userData) {
-    //         Login.setLoginState(true, userData);
-    //         setstate(true);
-    //     }
-
-    // }, []);
+  
     const [patientsList, setPatients] = useState([]);
 
     useEffect(async () => {
-        if (state) {
+        if(Login.user) {
             const patients = await axios.get(`${API}/${Login.user.user.id}`);
             console.log("1- From Api---> ", patients.data);
 
-            setPatients([...patientsList, ...patients.data]);
+            setPatients(patients.data);
             console.log("2- patientsList---> ", ...patientsList);
         }
-    }, [state]);
+    }, [Login.user]);
 
     return (
         <div>

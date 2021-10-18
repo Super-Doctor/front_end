@@ -24,8 +24,8 @@ function Modals(props) {
         setusers(res.data);
         console.log(res.data);
 
-        console.log(Login.user.user,"5555555555555555555555555555");
-        
+        console.log(Login.user.user, "5555555555555555555555555555");
+
       })
       .catch((err) => {
         console.log(err);
@@ -45,31 +45,31 @@ console.log( date);
           doctorId:props.doctorId
       }
 
-      console.log(myBookObj);
-      let link = 'https://super-doctors.herokuapp.com/bookAppointment'
-      await axios.post(link, myBookObj)
+    console.log(myBookObj);
+    let link = 'https://super-doctors.herokuapp.com/bookAppointment'
+    await axios.post(link, myBookObj)
       .then((res) => {
         // alert
         swal({
-            title: "Reservation Accepted!",
-            text: "we will contact you soon",
-            icon: "success",
-            button: "okay!",
-          });
+          title: "Reservation Accepted!",
+          text: "we will contact you soon",
+          icon: "success",
+          button: "okay!",
+        });
         console.log('555');
       })
       .catch((err) => {
         // alert
         swal({
-            title: "error occured!",
-            text: "something went wrong",
-            icon: "warning",
-            button: "try again!",
-          });
+          title: "error occured!",
+          text: "something went wrong",
+          icon: "warning",
+          button: "try again!",
+        });
         console.log('Error in Axsios');
 
       });
-      props.showmodalFunc()
+    props.showmodalFunc()
   }
 
   return (
