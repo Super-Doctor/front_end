@@ -11,6 +11,8 @@ export default function LoginProvider(props) {
     const [user, setUser] = useState({});
     const[toggleLogIn , setToggle] = useState(false);
     const[toggSignUp , setSignUp] = useState(false);
+    const [userCapability, setuserCapability] = useState(1);
+
 
     // initial render
     useEffect(() => {
@@ -103,7 +105,9 @@ export default function LoginProvider(props) {
         toggleSignUpState,
         toggSignUp,
         signUp,
-        setLoginState
+        setLoginState,
+        userCapability,
+         setuserCapability
     }
 
     return (

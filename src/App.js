@@ -1,4 +1,6 @@
-import React from 'react'
+// import React from 'react'
+import React, { useContext } from 'react';
+
 import Footer from './components/footer'
 import Header from './components/header'
 import Home from './components/home'
@@ -11,12 +13,13 @@ import Departments from './components/Departement/Departments'
 import PatientsList from './components/Patients/PatientsList'
 import Profile from './components/Profile/Profile'
 import Appointments from './components/Appointments/Appointments'
-
+import Auth from './context/auth'
 
 
 
 export default class App extends React.Component {
-
+  
+  // static logincontext = useContext(LoginContext);
  
   static contextType = LoginContext;
 
@@ -50,7 +53,14 @@ export default class App extends React.Component {
               </Route>
 
               <Route path="/patientslist">
+              <When condition={this.context.userCapability > 1}>
+                  
                 <PatientsList/>
+                
+                {/* <Else>
+                    <h2>you don't have a permission to control the settings!</h2>
+                  </Else> */}
+                </When>
               </Route>
               
               <Route path="/departments">
