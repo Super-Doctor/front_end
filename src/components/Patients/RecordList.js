@@ -91,7 +91,7 @@ export default function RecordList(props) {
        //}
     })
 }
-                    <h1>Patients List</h1>
+                    {/* <h1>Patients List</h1> */}
                     {/* {this.props.patientId.map((record) => {
                         return (
                             <li  key={record.id}>{`Name : ${record.doctorName}    `} <span>{`   Date : ${record.checkInDate}`}</span></li>

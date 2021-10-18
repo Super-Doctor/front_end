@@ -83,7 +83,7 @@ function Header() {
                     </Dropdown.Toggle>
                     <Dropdown.Menu className='menuItems'>
                       <Dropdown.Item href="/profile">{Login.user.user.userName.toUpperCase()}</Dropdown.Item>
-                      <Dropdown.Item >Patient Item</Dropdown.Item>
+                      <Dropdown.Item href="/patientslist" >Patients List</Dropdown.Item>
                       <Dropdown.Item >Patient Item</Dropdown.Item>
                       <Button onClick={Login.logout}>Logout</Button>
                     </Dropdown.Menu>

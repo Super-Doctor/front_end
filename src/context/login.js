@@ -23,6 +23,11 @@ export default function LoginProvider(props) {
         const token = qs.get('token') || cookieToken || null;
         console.log("token From the first load : " , token);
         validateJwToken(token );
+        const capability = cookie.load('capability');
+        console.log(">>>>>>>>>>>>>>>>>>>",capability);
+    if (capability) {
+      setuserCapability(JSON.parse(capability));
+    }
     }, []);
 
   
@@ -40,6 +45,11 @@ export default function LoginProvider(props) {
         const response = await superagent.get(`${API}`)
             .set('authorization', `Basic ${encodedUsernameAndPassword}`)
             .set('Access-Control-Allow-Origin', '*');
+            console.log('response.body.user',response.body.capabilities.length);
+            setuserCapability(response.body.capabilities.length);
+            console.log(userCapability);
+            cookie.save('capability', JSON.stringify(response.body.capabilities.length));
+
             validateJwToken(response.body.user.token , response.body);
 
             console.log('from logIn',response.body);
@@ -73,6 +83,7 @@ export default function LoginProvider(props) {
             console.log('Token : ',token);
 
             cookie.save('token', token)
+            
         } 
        else {
             // the user is NOT logged in
@@ -100,9 +111,16 @@ export default function LoginProvider(props) {
 
                  }
 
-                 console.log('userFromToken : '  ,userFromToken);
+                 console.log('userFromToken : '  ,userFromToken.capabilities);
+                //  const capability = cookie.load('capability');
+                 const capability = userFromToken.capabilities;
 
-                 setLoginState(true, userFromToken);
+                 console.log(">>>>>>>>>>>>>>>>>>>",capability);
+             if (capability) {
+                setLoginState(true, userFromToken);
+
+               setuserCapability(JSON.parse(capability));
+             }
 
              } else {
                 setLoginState(false, null);
