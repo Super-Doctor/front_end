@@ -12,7 +12,7 @@ import PatientsList from './components/Patients/PatientsList'
 import Profile from './components/Profile/Profile'
 import Appointments from './components/Appointments/Appointments'
 
-
+import Modals from './components/Departement/model'
 
 
 export default class App extends React.Component {
@@ -52,12 +52,22 @@ export default class App extends React.Component {
               <Route path="/patientslist">
                 <PatientsList/>
               </Route>
-              
+
+
               <Route path="/departments">
 
                 <Departments/>
 
               </Route>
+
+
+              {/* <Route path="/Modals"> */}
+
+
+
+{/* </Route> */}
+
+
 
             </Switch>
           </When>
