@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ephesis&family=Merriweather:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ephesis&family=Inconsolata:wght@200&family=Merriweather:wght@300&display=swap');
+
+
+.patientsCard{
+    border: solid 1px black;
+    width: 450px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-left: 5px;
+   border-radius: 15px;
+   background-color: #01295F;
+}
+.patientsCard h5{
+    margin-left: 15px;
+    color: #DEF0F7;
+    font-family: 'Inconsolata', monospace;
+    font-weight: 700;
+}
+.patientsCard p{
+    margin-left: 15px;
+    color: #DEF0F7;
+    font-family: 'Inconsolata', monospace;
+}
+.patientsCard button{
+    margin-left: 15px;
+    color: #01295F;
+    background-color: #DEF0F7;
+    border-radius: 15px;
+    font-family: 'Bebas Neue', cursive;
+
+}
+h1{
+    margin-left: 15px;
+    font-family: 'Bebas Neue', cursive;
+
+}
