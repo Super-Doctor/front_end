@@ -4,6 +4,8 @@ import { LoginContext } from '../../context/login';
 import RecordList from './RecordList';
 import { Button, Card, Elevation } from "@blueprintjs/core";
 import './patients.css'
+import AddModal from './AddModal';
+
 export default function PatientsList() {
     const API = "https://super-doctors.herokuapp.com/doctorPatients";
     const APIForAllPatient = 'https://super-doctors.herokuapp.com/allpatients'
@@ -48,6 +50,7 @@ export default function PatientsList() {
             {patientId != '' &&
                 <>
                     <RecordList users={recordsList} patientId={patientId} />
+                    <AddModal doctorId={patientId}></AddModal>
                 </>
 
             }

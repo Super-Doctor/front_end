@@ -50,25 +50,7 @@ function Header() {
           <When condition={Login.loggedIn && Login.user}>
 
 
-            {/* <>
-                <div className="dropdown">
-                  <Dropdown className="d-inline mx-2" >
-                    <Dropdown.Toggle id="dropdown-autoclose-true">
-                      <img className='userImg'
-                        src='https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png'
-                        height='20px'
-                        width='20px'
-                      />
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu className='menuItems'>
-                      <Dropdown.Item >{Login.user.user.userName.toUpperCase()}</Dropdown.Item>
-                      <Dropdown.Item >Patient Item</Dropdown.Item>
-                      <Dropdown.Item >Patient Item</Dropdown.Item>
-                      <Button onClick={Login.logout}>Logout</Button>
-                    </Dropdown.Menu>
-                  </Dropdown>
-                </div>
-              </> */}
+           
 
             {Login.user && Login.user.user.roleId == 1 &&
               <>
@@ -83,7 +65,7 @@ function Header() {
                     </Dropdown.Toggle>
                     <Dropdown.Menu className='menuItems'>
                       <Dropdown.Item href="/profile">{Login.user.user.userName.toUpperCase()}</Dropdown.Item>
-                      <Dropdown.Item >Patient Item</Dropdown.Item>
+                      <Dropdown.Item href="/patientslist" >Patients List</Dropdown.Item>
                       <Dropdown.Item >Patient Item</Dropdown.Item>
                       <Button onClick={Login.logout}>Logout</Button>
                     </Dropdown.Menu>
