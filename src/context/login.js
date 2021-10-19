@@ -146,6 +146,7 @@ export default function LoginProvider(props) {
              const cookieToken = cookie.load('token');
              if(cookieToken) {
                  let userData = jwt.decode(cookieToken);
+                 console.log('>>>>>>>>>>>>>.',userData);
                 //  const response = await superagent.get(`https://super-doctors.herokuapp.com/roles`);
 
                 //  let capabilities = response.body.filter(role=>{
@@ -163,7 +164,18 @@ export default function LoginProvider(props) {
                                 gender: userData.gender
                               
                             } ,
-                            capabilities:     userData.capabilities
+                            capabilities:     userData.capabilities,
+                            mediacalList:{
+                                checkInDate: userData.checkInDate,
+                                checkOutDate: userData.checkOutDate,
+                                medicalCase: userData.medicalCase,
+                                doctorName: userData.doctorName,
+                                doctorReport: userData.doctorReport,
+                                patientId: userData.doctorId,
+                                doctorId:userData.doctorId,
+                                departmentId:userData.departmentId,
+                                status:userData.status
+                            }
 
                  }
 

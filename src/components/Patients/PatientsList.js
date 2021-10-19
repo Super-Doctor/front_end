@@ -50,7 +50,7 @@ export default function PatientsList() {
             {patientId != '' &&
                 <>
                     <RecordList users={recordsList} patientId={patientId} />
-                    <AddModal doctorId={patientId}></AddModal>
+                    <AddModal users={recordsList} doctorId={patientId}></AddModal>
                 </>
 
             }
@@ -63,10 +63,13 @@ export default function PatientsList() {
                            <Card interactive={true} elevation={Elevation.TWO} onClick={() => showRecord(`${record.patientId}`)} key={record.id} className='patientsCard' >
                                     <h5> {formatted.map(user => {
                                         if (user.id == record.patientId) {
-                                            return (<span>{` Patient Name : ${user.userName}`}</span>)
+                                            return (<><span>{` Patient Name : ${user.userName}  `}</span>
+                                            <h6>{`Patient ID : ${user.id}`}</h6>
+                                            </>)
                                         }
 
                                     })}</h5>
+                                     <p>{`Doctor ID : ${record.doctorId}`}</p>
                                     <p>{`CheckIn Date : ${record.checkInDate}`}</p>
                                     <p>{`Medical Case : ${record.medicalCase}`}</p>
 
