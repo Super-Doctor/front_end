@@ -13,6 +13,9 @@ export class AboutUs extends React.Component {
     return (
 
       <div className="aboutus">
+        <div className="titelAboutus">
+          <h2> Super Doctor Team </h2>
+        </div>
         <div className="firstSec">
 
           <div className="container">

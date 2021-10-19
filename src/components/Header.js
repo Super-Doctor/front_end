@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import Footer from "./footer";
 import './home.css'
+import SuperDoctor from '../logo/SuperDoctor-Logo.png'
 
 import { LoginContext } from '../context/login';
 import { When } from 'react-if';
@@ -26,8 +27,8 @@ function Header() {
               <div className="logo">
                 <Link to="/">
                   <img
-                    src='https://images.vexels.com/media/users/3/216150/isolated/lists/3bba4f96c0e0e2b6a38659dd09f5dcaf-doctor-hero-with-cape-character.png'
-                    style={{ height: "60px", objectFit: "cover" }}
+                    src={SuperDoctor}
+                    style={{ height: "100px", objectFit: "cover" }}
                   />
                 </Link>
               </div>

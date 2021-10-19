@@ -24,6 +24,12 @@ ul {
     /* margin-left: 150px;
       margin-top: 50px; */
   }
+
+  .titelAboutus{
+ margin-bottom: 10%;
+    top: 5%;
+    left:40%;
+  }
   
   .memberCard {
     box-sizing: border-box;
