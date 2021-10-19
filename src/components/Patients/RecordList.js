@@ -21,7 +21,6 @@ export default function RecordList(props) {
     const API = "https://super-doctors.herokuapp.com/patientRecords";
 
     const Login = useContext(LoginContext);
-    const [state, setChat] = useState(false);
 
 
 
@@ -40,31 +39,17 @@ export default function RecordList(props) {
     }, []);
 
     console.log('Before Return =====>', recordsPatientList)
-    let socket = io.connect('http://localhost:3001' , { transports : ['websocket'] });
 
 
-    const startChat = () => {
-        setChat(true);
-        console.log(io);
-        socket.emit("join-room" , 5,Login.user.user.userName);
-        
-        socket.emit("change_userName" ,{userName : Login.user.user.userName});
-    }
-
-    const endChat = () => {
-        setChat(false);
-        
-        socket.emit("disconnected" , Login.user.user.userName);
-    }
+    
 
 
     return (
         <>
 
-            <When condition={!state}>
+           
 
                 <h1>Patient Records</h1>
-                <Button onClick={startChat}>Start Chat</Button>
 
 
                 {recordsPatientList.patientRecords &&
@@ -114,20 +99,7 @@ export default function RecordList(props) {
 
                     </div>
                 }
-            </When>
-            <When condition={state}>
-                <When condition={Login.user.user.roleId == 2 && state}>
-                    <h1>Doctor View</h1>
-                    <Button onClick={endChat}> Exit Chat </Button>
-                    <Chat socket={socket} id = {props.patientId}/>
-                </When>
-
-                <When condition={Login.user.user.roleId == 1 && state}>
-                    <h1>Patient View</h1>
-                    <Button onClick={endChat}> Exit Chat </Button>
-                    <Chat socket={socket} />
-                </When>
-            </When>
+         
 
 
 

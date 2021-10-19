@@ -17,8 +17,9 @@ export default function PatientsList() {
     useEffect(async () => {
         if (Login.user) {
             let records = await axios.get(`${API}/${Login.user.user.id}`);
-            //console.log("1- From Api---> ", records.data);
-            let Patients = await axios.get(APIForAllPatient)
+            console.log("1- From Api---> ", records.data);
+            let Patients = await axios.get(APIForAllPatient);
+
             setRecords(records.data);
             let data = Patients.data.map(user => {
                 return ({
@@ -26,11 +27,11 @@ export default function PatientsList() {
                     id: user.user.id
                 })
             })
-            console.log('data ', data);
+            // console.log('data ', data);
             //setAllPatients(data)
             setFormatted(data)
             //console.log('patients list',Patients.data);
-            console.log("2- recordsList---> ", records.data);
+            // console.log("2- recordsList---> ", records.data);
             return true;
         }
 

@@ -4,6 +4,8 @@ import base64 from 'base-64';
 import jwt from 'jsonwebtoken';
 import cookie from 'react-cookies';
 import axios from "axios";
+import { io } from "socket.io-client";
+
 export const LoginContext = React.createContext(); 
 
 
@@ -15,6 +17,8 @@ export default function LoginProvider(props) {
     const[toggleLogIn , setToggle] = useState(false);
     const[toggSignUp , setSignUp] = useState(false);
     const [userCapability, setuserCapability] = useState(1);
+    const [socket , setSocket] =  useState();
+    const [onlineStatus , setOnlineStatus] = useState('')
 
 
 
@@ -23,9 +27,16 @@ export default function LoginProvider(props) {
     useEffect(() => {
         const qs = new URLSearchParams(window.location.search);
         const cookieToken = cookie.load('token');
+
         const token = qs.get('token') || cookieToken || null;
         console.log("token From the first load : " , token);
         validateJwToken(token );
+        // if(cookieToken){
+        //     let socket = io.connect('http://localhost:3001', { transports: ['websocket'] });
+        //     setSocket(socket)
+           
+        // }
+        
         const capability = cookie.load('capability');
         console.log(">>>>>>>>>>>>>>>>>>>",capability);
     if (capability) {
@@ -59,6 +70,9 @@ export default function LoginProvider(props) {
 
             // let userData = JSON.stringify(response.body);
             // localStorage.setItem("user" , userData)
+            // let socket = io.connect('http://localhost:3001', { transports: ['websocket'] });
+            // setSocket(socket)
+           
             setToggle(false);
     
 
@@ -187,6 +201,12 @@ export default function LoginProvider(props) {
     }
     
     const setLoginState = (loggedIn, user) => {
+        let socket = io.connect('https://super-doctors.herokuapp.com', { transports: ['websocket'] });
+            setSocket(socket)
+            if(user) {
+                socket.emit('online' ,user.user.id);
+
+            }
         setLoggedIn(loggedIn);
         setUser(user);
 
@@ -194,8 +214,10 @@ export default function LoginProvider(props) {
     }
 
     const logout = () => {
+        setOnlineStatus('offline');
         cookie.remove('token');
         setLoginState(false, null);
+        
         window.location.href = "/";
        
      
@@ -207,6 +229,7 @@ export default function LoginProvider(props) {
     };
 
     const toggleLogInState = () =>{
+
         setToggle(true);
         setSignUp(false);
 
@@ -234,7 +257,9 @@ export default function LoginProvider(props) {
         signUp,
         setLoginState,
         userCapability,
-         setuserCapability
+         setuserCapability,
+         socket,
+         onlineStatus
     }
 
     return (
