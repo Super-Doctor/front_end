@@ -3,23 +3,39 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: xx-large;
 }
-.card1 :hover{
 
-    cursor: pointer;
-}
 
 @import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
 
-h2{
+.h2{
 
-   font-family: 'Rampart One', cursive;
-   color:black;
+   /* font-family: 'Rampart One', cursive; */
+   color:#515166;
    font-weight: bolder;
-   background-color: #75B8C8;
+   /* background-color: #AFB3F7; */
    text-align: center;
    
 }
+.h2 :hover{
+   color:#1f17c0;
+   text-shadow: rgb(20, 20, 18) 0px 2px 52px 2px;
+}
+.cardi :hover{
+  color: blue;
+   /* opacity: 0.4; */
+   transform: scale(1.02);
+  
+}
 
+h6 :hover{
+   text-decoration:'underline'
+
+}
+
+/* .texteye { */
+   /* transform: scale(1.05); */
+   /* color: blue; */
+/* } */
 /* @import url(https://fonts.googleapis.com/css?family=Lato); */
 
 
