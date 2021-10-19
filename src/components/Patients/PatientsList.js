@@ -5,7 +5,7 @@ import RecordList from './RecordList';
 import { Button, Card, Elevation } from "@blueprintjs/core";
 import './patients.css'
 import AddModal from './AddModal';
-import Table from 'react-bootstrap/Table'
+// import Table from 'react-bootstrap/Table'
 export default function PatientsList() {
     const API = "https://super-doctors.herokuapp.com/doctorPatients";
     const APIForAllPatient = 'https://super-doctors.herokuapp.com/allpatients'
@@ -50,7 +50,7 @@ export default function PatientsList() {
             {patientId != '' &&
                 <>
                     <RecordList users={recordsList} patientId={patientId} />
-                    <AddModal doctorId={patientId}></AddModal>
+                    <AddModal users={recordsList} doctorId={patientId}></AddModal>
                 </>
 
             }
@@ -63,50 +63,58 @@ export default function PatientsList() {
                     <h1 >Patients List</h1>
                     {recordsList.map((record, idx) => {
                         return (
-                           <Table  style={{textAlign:"center"}} striped bordered hover onClick={() => showRecord(`${record.patientId}`)} key={record.id} className='patientsCard' >
-                                 <thead>
+                           <Card  style={{textAlign:"center"}} striped bordered hover onClick={() => showRecord(`${record.patientId}`)} key={record.id} className='patientsCard' >
+                                 {/* <thead> */}
                                     <h5> {formatted.map(user => {
                                         if (user.id == record.patientId) {
-                                            return (
+                                            // return (
                                             
-                                                <tr scope="col">
+                                            //     <tr scope="col">
                                                     
                                                     
-                                                     <td scope="col">Patient Name :</td> 
+                                            //          <td scope="col">Patient Name :</td> 
                                                      
-                                                     <td scope="col">  {`${user.userName}`}</td> 
+                                            //          <td scope="col">  {`${user.userName}`}</td> 
                                                      
                                                      
-                                                      </tr>
+                                            //           </tr>
                                                 
                                                 
                                                 
-                                                )
+                                            //     )
                                             
+                                            return (<><span>{` Patient Name : ${user.userName}  `}</span>
+                                            <h6>{`Patient ID : ${user.id}`}</h6>
+                                            </>)
                                         }
                                         
-                                    })}</h5></thead>
-                                    <tbody>
+                                    })}</h5>
+                                    {/* </thead> */}
+                                    {/* <tbody>
 
                                     <tr scope="col">
 
                                     <td scope="col">CheckIn Date :</td>
                                     <td scope="col"> {`${record.checkInDate}`}</td>
                                  
-                                    </tr>
+                                    </tr> */}
 
 
-   <tr scope="col">
-                                    <td scope="col"> Medical Case :</td>
+   {/* <tr scope="col"> */}
+                                    {/* <td scope="col"> Medical Case :</td> */}
                                     
                                     
-                                  <td scope="col">    {`${record.medicalCase}`}</td>
+                                  {/* <td scope="col">    {`${record.medicalCase}`}</td> */}
 
+                                    {/* })}</h5> */}
+                                     <p>{`Doctor ID : ${record.doctorId}`}</p>
+                                    <p>{`CheckIn Date : ${record.checkInDate}`}</p>
+                                    <p>{`Medical Case : ${record.medicalCase}`}</p>
 
-                                    </tr>
-                                    </tbody>
+                                    {/* </tr> */}
+                                    {/* </tbody> */}
                                     <button>Submit</button>
-                                  </Table>
+                                  </Card> 
                         )
                     })}
 

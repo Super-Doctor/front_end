@@ -126,7 +126,15 @@ class All extends React.Component {
                       showmodalFunc={this.showmodal}
                       showmodal={this.state.show}
                     />
+                  
                   )}
+{/* {this.state.show && (
+<ModalsAdd 
+                    appointmentData={this.state.appointmentData}
+                    doctorId={this.props.users[index].user.id}
+                    showmodalFunc={this.showmodal}
+                    showmodal={this.state.show}
+                  />)} */}
                 </CardActions>
               </Card>
             );
