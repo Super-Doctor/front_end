@@ -2,19 +2,21 @@ import React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaFacebookF, FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import './footer.css'
+import logo from './slideimg/download.png'
+
 export default function Footer() {
     return (
         <div>
             <footer>
                 <div>
                     <div className="footerLogo">
-                        <img src='https://images.vexels.com/media/users/3/216150/isolated/lists/3bba4f96c0e0e2b6a38659dd09f5dcaf-doctor-hero-with-cape-character.png'></img>
+                        <img src={logo}></img>
                     </div>
                     <div className="contact">
                         <ul>
-                       <li>Located: Amman, Jordan</li>     
-                       <li>E-mail: doctors@superdoctor.com</li>
-                       <li>Phone: 0790783215</li>
+                       <li>Located: Amman, Jordan</li> <br/>
+                       <li>E-mail: doctors@superdoctor.com</li> <br/>
+                       <li>Phone: 0790783215</li><br/>
                        </ul>
                         
 
