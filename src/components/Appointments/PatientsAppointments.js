@@ -7,14 +7,15 @@ export default function Appointments() {
     const API = "https://super-doctors.herokuapp.com";
 
     const Login = useContext(LoginContext);
-  
+
     const [patientsList, setPatients] = useState([]);
 
     useEffect(async () => {
         // const patients123 = await axios.get(`${API}/${Login.user.user.id}`);
         console.log(Login);
-        if(Login.user) {
-            const patients = await axios.get(`${API}/AllAppointments/${Login.user.user.id}`);
+        if (Login.user) {
+            console.log(Login.user);
+            const patients = await axios.get(`${API}/pateintAppointments/${Login.user.user.id}`);
             console.log("1- From Api---> ", patients.data);
 
             setPatients(patients.data);
@@ -22,7 +23,7 @@ export default function Appointments() {
         }
     }, [Login.user]);
 
-    async function deleteAppointment(id){
+    async function deleteAppointment(id) {
         console.log(id);
         const deleteLink = `${API}/deleteAppointments/${id.id}/delete-Appointments`
 
@@ -30,13 +31,14 @@ export default function Appointments() {
 
         console.log(deletedApp);
         // data => AppointmentsInformation => patientId
-        let result = deletedApp.data.AppointmentsInformation.filter(appointment=>{
-            if(appointment.doctorId === Login.user.user.id){
+        let result = deletedApp.data.AppointmentsInformation.filter(appointment => {
+            if (appointment.patientId === Login.user.user.id) {
                 return (appointment)
             }
         })
         setPatients(result)
-    } 
+    }
+
     return (
         <div>
             <h1>Appointments List</h1>
@@ -55,7 +57,7 @@ export default function Appointments() {
 
                             <tr key={patient.id}>
                                 <td>{idx + 1}</td>
-                                <td>{`${patient.patientName}`}</td>
+                                <td>{`${patient.patientName}    `}</td>
                                 <td>{`${patient.Date}`}</td>
                                 <td><div onClick={() => deleteAppointment(patient)} ><span>❌</span></div></td>
 
@@ -69,3 +71,4 @@ export default function Appointments() {
         </div>
     )
 }
+

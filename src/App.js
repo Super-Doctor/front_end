@@ -14,9 +14,11 @@ import Departments from './components/Departement/Departments'
 import PatientsList from './components/Patients/PatientsList'
 import Profile from './components/Profile/Profile'
 import Appointments from './components/Appointments/Appointments'
+import PatientsAppointments from './components/Appointments/PatientsAppointments'
 import Auth from './context/auth'
 import axios from 'axios';
 import AddModal from './components/Patients/AddModal'
+import AboutUs from '../src/components/AboutUs/AboutUs'
 
 
 import Modals from './components/Departement/model'
@@ -50,7 +52,7 @@ export default class App extends React.Component {
     };
   };
   // static logincontext = useContext(LoginContext);
- 
+
   static contextType = LoginContext;
 
   // componentDidMount () {
@@ -67,38 +69,47 @@ export default class App extends React.Component {
     return (
       <div>
 
-            <Header />
+        <Header />
         <Router >
-          <When condition={!this.context.toggleLogIn } >
+          <When condition={!this.context.toggleLogIn} >
             <Switch>
               <Route exact path="/">
                 <Home />
               </Route>
               <Route path="/profile">
-                <Profile/>
+                <Profile />
+              </Route>
+              <Route path="/aboutus">
+                <AboutUs />
+              </Route>
+             
+              <Route path="/appointments">
+                <Appointments />
               </Route>
 
-              <Route path="/appointments">
-                <Appointments/>
+              <Route path="/patientsAppointment">
+                <PatientsAppointments />
               </Route>
 
               <Route path="/patientslist">
                 {console.log(this.context.userCapability)};
-              {this.context.userCapability>4 ?
-              <>
-              <PatientsList/>
-            
-               <button onClick={this.showmodal}>Update medical information
-               <AddModal appointmentData={this.state.appointmentData}
-                      // doctorId={this.props.users[index].user.id}
-                      showmodalFunc={this.showmodal}
-                      showmodal={this.state.show}/>
-         
-               </button>
-               
-              </> :<PatientsList/>}
-              
-              {/* <Auth capability="update-medicalRecord">
+                {this.context.userCapability > 4 ?
+                  <>
+                    <PatientsList />
+
+                    <button onClick={this.showmodal}>Update medical information
+                      <AddModal appointmentData={this.state.appointmentData}
+                        // doctorId={this.props.users[index].user.id}
+                        showmodalFunc={this.showmodal}
+                        showmodal={this.state.show} />
+
+                    </button>
+
+                  </> : <PatientsList />}
+
+
+
+                {/* <Auth capability="update-medicalRecord">
               <PatientsList/>
                 <h2>you can read this!!</h2>
                 <button>Add more information</button>
@@ -118,7 +129,7 @@ export default class App extends React.Component {
 
               <Route path="/departments">
 
-                <Departments/>
+                <Departments />
 
               </Route>
 
@@ -127,7 +138,7 @@ export default class App extends React.Component {
 
 
 
-{/* </Route> */}
+              {/* </Route> */}
 
 
 
