@@ -8,6 +8,18 @@
     cursor: pointer;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+
+h2{
+
+   font-family: 'Rampart One', cursive;
+   color:black;
+   font-weight: bolder;
+   background-color: #75B8C8;
+   text-align: center;
+   
+}
+
 /* @import url(https://fonts.googleapis.com/css?family=Lato); */
 
 
