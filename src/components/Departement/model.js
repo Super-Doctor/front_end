@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Modal, Button, DropdownButton, Dropdown, Form } from "react-bootstrap";
+import { Modal, Button, DropdownButton, Dropdown,Form } from "react-bootstrap";
 import { LoginContext } from "../../context/login";
 import axios from "axios";
 import swal from 'sweetalert';
@@ -32,15 +32,18 @@ function Modals(props) {
       });
   }, []);
 
-  let bookFunc = async (e) => {
-    e.preventDefault()
-    let date = e.target.date.value
-    let myBookObj = {
-      patientName: Login?.user?.user?.userName,
-      Date: date,
-      patientId: Login?.user?.user?.id,
-      doctorId: props.doctorId
-    }
+  let bookFunc= async (e)=>{
+e.preventDefault()
+let date = `${e.target.date.value} ${e.target.time.value}`
+// let time =${e.target.time.value}
+console.log( date);
+// console.log(time);
+      let myBookObj = {
+          patientName:Login?.user.user.userName,
+          Date:date ,
+          patientId:Login?.user.user.id,
+          doctorId:props.doctorId
+      }
 
     console.log(myBookObj);
     let link = 'https://super-doctors.herokuapp.com/bookAppointment'
@@ -77,11 +80,9 @@ function Modals(props) {
             <Modal.Title>Modal heading</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-       
-
             <Form.Label>Appointment Data</Form.Label>
+            
             <Form.Control  type="date" name="date" placeholder="Enter date" />
-
             <Form.Label>Appointment Time</Form.Label>
             <Form.Control  type="time" name="time" placeholder="Enter time" />
           </Modal.Body>
