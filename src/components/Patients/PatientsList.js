@@ -5,7 +5,7 @@ import RecordList from './RecordList';
 import { Button, Card, Elevation } from "@blueprintjs/core";
 import './patients.css'
 import AddModal from './AddModal';
-
+import Table from 'react-bootstrap/Table'
 export default function PatientsList() {
     const API = "https://super-doctors.herokuapp.com/doctorPatients";
     const APIForAllPatient = 'https://super-doctors.herokuapp.com/allpatients'
@@ -57,21 +57,56 @@ export default function PatientsList() {
             {
                 patientId == '' &&
                 <div>
+
+
+
                     <h1 >Patients List</h1>
                     {recordsList.map((record, idx) => {
                         return (
-                           <Card interactive={true} elevation={Elevation.TWO} onClick={() => showRecord(`${record.patientId}`)} key={record.id} className='patientsCard' >
+                           <Table  style={{textAlign:"center"}} striped bordered hover onClick={() => showRecord(`${record.patientId}`)} key={record.id} className='patientsCard' >
+                                 <thead>
                                     <h5> {formatted.map(user => {
                                         if (user.id == record.patientId) {
-                                            return (<span>{` Patient Name : ${user.userName}`}</span>)
+                                            return (
+                                            
+                                                <tr scope="col">
+                                                    
+                                                    
+                                                     <td scope="col">Patient Name :</td> 
+                                                     
+                                                     <td scope="col">  {`${user.userName}`}</td> 
+                                                     
+                                                     
+                                                      </tr>
+                                                
+                                                
+                                                
+                                                )
+                                            
                                         }
+                                        
+                                    })}</h5></thead>
+                                    <tbody>
 
-                                    })}</h5>
-                                    <p>{`CheckIn Date : ${record.checkInDate}`}</p>
-                                    <p>{`Medical Case : ${record.medicalCase}`}</p>
+                                    <tr scope="col">
 
+                                    <td scope="col">CheckIn Date :</td>
+                                    <td scope="col"> {`${record.checkInDate}`}</td>
+                                 
+                                    </tr>
+
+
+   <tr scope="col">
+                                    <td scope="col"> Medical Case :</td>
+                                    
+                                    
+                                  <td scope="col">    {`${record.medicalCase}`}</td>
+
+
+                                    </tr>
+                                    </tbody>
                                     <button>Submit</button>
-                                </Card>
+                                  </Table>
                         )
                     })}
 
