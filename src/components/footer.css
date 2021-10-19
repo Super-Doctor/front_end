@@ -6,7 +6,7 @@ footer {
   
   /* #03012C
   #AFB3F7 */
-  background-color: #03012C;
+  background-color: #1B2740;
   color: white;
 }
 footer img {
@@ -25,7 +25,7 @@ footer h2 {
 
 .copyrightDivContainer {
   width: 100%;
-  background-color: #eee;
+  background-color: #AFB3F7;
   position: absolute;
 
   padding: 0.5rem;
@@ -37,7 +37,7 @@ footer h2 {
 .copyrightDiv {
   text-align: center;
   color: #03012C;
-  background-color: #eee;
+  background-color: #AFB3F7;
 }
 .followLinks { 
   text-align: center;
