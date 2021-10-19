@@ -40,7 +40,8 @@
     "styled-components": "^5.3.1",
     "superagent": "^6.1.0",
     "sweetalert": "^2.1.2",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "webfontloader": "^1.6.28"
   },
   "scripts": {
     "start": "react-scripts start",
