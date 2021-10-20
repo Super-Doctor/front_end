@@ -2,29 +2,27 @@ import React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaFacebookF, FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import './footer.css'
-import SuperDoctor from '../logo/SuperDoctor-Logo.png'
+import logo from './slideimg/download.png'
+
 export default function Footer() {
   return (
+
     <div>
       <footer>
         <div>
           <div className="footerLogo">
-            <img src={SuperDoctor}></img>
+            <img src={logo}></img>
           </div>
-          <div className="technologies">
-            <h2>Technologies used</h2>
-            <p>React</p>
-            <p>Bootstrap</p>
-            <p>Express - axios</p>
-            <p>Postgress</p>
-            <p>Socket io</p>
-            <p>Coffee</p>
+          <div className="contact">
+            <ul>
+              <li>Located: Amman, Jordan</li> <br />
+              <li>E-mail: doctors@superdoctor.com</li> <br />
+              <li>Phone: 0790783215</li><br />
+            </ul>
+
+
           </div>
-          <div className="contactLinks">
-            <h2>Contact</h2>
-            <p>Email</p>
-            <p>Buy us a coffee</p>
-          </div>
+
           <div className="followLinks">
             <p>
               <FaGithub />
