@@ -22,6 +22,7 @@ import AboutUs from '../src/components/AboutUs/AboutUs'
 
 
 import Modals from './components/Departement/model'
+import UsersList from './components/Chat/UsersList';
 
 
 export default class App extends React.Component {
@@ -72,8 +73,8 @@ export default class App extends React.Component {
   // }
 
   // }
-
   render() {
+
     return (
       <div style={{backgroundColor:'#eee'}}>
 
@@ -97,6 +98,10 @@ export default class App extends React.Component {
 
               <Route path="/patientsAppointment">
                 <PatientsAppointments />
+              </Route>
+
+              <Route path="/chat">
+                <UsersList />
               </Route>
 
               <Route path="/patientslist">
