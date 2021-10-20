@@ -37,6 +37,9 @@ function Header() {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/departments">Departments</Nav.Link>
               <Nav.Link href="/aboutus">About Us</Nav.Link>
+              {Login.loggedIn &&  <Nav.Link href="/chat">Chat</Nav.Link>}
+             
+
 
 
             </Nav>
