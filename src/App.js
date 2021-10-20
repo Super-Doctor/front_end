@@ -76,7 +76,7 @@ export default class App extends React.Component {
   render() {
 
     return (
-      <div>
+      <div style={{backgroundColor:'#eee'}}>
 
         <Header />
         <Router >

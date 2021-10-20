@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import Footer from "./footer";
 import './home.css'
+import SuperDoctor from '../logo/SuperDoctor-Logo.png'
 
 import { LoginContext } from '../context/login';
 import { When } from 'react-if';
@@ -26,22 +27,19 @@ function Header() {
               <div className="logo">
                 <Link to="/">
                   <img
-                    src='https://images.vexels.com/media/users/3/216150/isolated/lists/3bba4f96c0e0e2b6a38659dd09f5dcaf-doctor-hero-with-cape-character.png'
-                    style={{ height: "60px", objectFit: "cover" }}
+                    src={SuperDoctor}
+                    style={{ height: "100px", objectFit: "cover" }}
                   />
                 </Link>
               </div>
             </Navbar.Brand>
-            <Navbar.Brand href="/">Super Doctor</Navbar.Brand>
+            <Navbar.Brand className='headerstyle' href="/">Super Doctor</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/departments">Departments</Nav.Link>
-              <Nav.Link href="/aboutus">About Us</Nav.Link>
-              {Login.loggedIn &&  <Nav.Link href="/chat">Chat</Nav.Link>}
+              <Nav.Link className="me-auto" href="/">Home</Nav.Link>
+              <Nav.Link className="me-auto" href="/departments">Departments</Nav.Link>
+              <Nav.Link className="me-auto" href="/aboutus">About Us</Nav.Link>
+              {Login.loggedIn &&  <Nav.Link className="me-auto" href="/chat">Chat</Nav.Link>}
              
-
-
-
             </Nav>
 
           </Container>
