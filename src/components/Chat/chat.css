@@ -1,0 +1,145 @@
+.mainChat{
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+.messagesDiv {
+    width: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(201, 201, 201);
+    list-style: none;
+    font-weight: bold;
+    min-height: 400px;
+    max-height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#othermessages{
+    background-color: hotpink;
+
+}
+
+#mymessages{
+    background-color: green;
+ 
+
+
+}
+
+
+
+.othermessages {
+    width: 100%;
+    display: block;
+    margin: 5px;
+  float: left;
+
+}
+.othermessages span {
+   
+    width: fit-content;
+    display: block;
+    background-color: white;
+    border-radius: 30px;
+    padding: 10px;
+    margin-left: 20px;
+    
+}
+
+.mymessages {
+    width: 100%;
+    display: block;
+    margin: 5px;
+    float: right;
+    
+}
+
+.mymessages span {
+   
+    width: fit-content;
+    display: block;
+    background-color: lightgreen;
+    border-radius: 30px;
+    padding: 10px;
+    float: right;
+    margin-right: 20px;
+}
+
+.mb-3 {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+}
+
+.from{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+height: 40px;
+background-color: rgb(201, 201, 201);
+
+}
+.input {
+    width: 90%;
+    float: left;
+    height: 40px;
+    border-radius: 30px;
+}
+#icon{
+    width: 10%;
+    text-align: center;
+    height: 40px;
+   
+    border: rgb(201, 201, 201) solid 2px;
+    background-color: #6585b1;
+    border-radius: 30px;
+    float: right;
+
+
+
+}
+
+
+
+
+.header {
+    width: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #6585b1;
+    height: 60px;
+}
+
+
+#h3 {
+    width: 85%;
+    float: right;
+}
+
+#h3 h3 {
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+}
+
+#exit {
+    width: 10%;
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    margin-left: 10px;
+}
+
+#exit button {
+    background-color: #6585b1;
+    border-radius: 50px;
+
+}

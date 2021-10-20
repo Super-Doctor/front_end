@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Form, Button, Dropdown, Col, Row } from 'react-bootstrap';
 import { LoginContext } from '../../context/login';
-import "./sign.scss";
+import "./sign.css";
 import useForm from '../../hooks/form';
 
 export default function SignUp() {

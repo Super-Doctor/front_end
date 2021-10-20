@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Form , Button } from 'react-bootstrap'
-import "./sign.scss";
+import "./sign.css";
 
 import useForm from '../../hooks/form';
 import { LoginContext } from '../../context/login';
