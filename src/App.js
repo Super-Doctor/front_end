@@ -109,9 +109,10 @@ export default class App extends React.Component {
                 {this.context.userCapability > 4 ?
                   <>
                     <PatientsList />
-
-                    <button onClick={this.showmodal}>Add medical information
+<div style={{position:'relative' , left:'600px' , color:'#33516F' }}>
+                    <button style={{ color:'white' ,backgroundColor:'#33516F'}}onClick={this.showmodal}>Add medical information
                     </button>
+                    </div>
                     {this.state.show && (
                       <AddModal appointmentData={this.state.appointmentData}
                         // doctorId={this.props.users.id}

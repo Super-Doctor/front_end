@@ -116,9 +116,9 @@ class All extends React.Component {
                   </CardContent>
                 </CardActionArea>
                 <CardActions>
-                  <Button size="small" color="primary" onClick={this.showmodal} className="cardbTN">
-                    Book an Appoinment !
-                  </Button>
+                  <button size="small"  onClick={this.showmodal} className="cardbTN">
+                    Book an Appoinment!
+                  </button>
                   {this.state.show && (
                     <Modals
                       appointmentData={this.state.appointmentData}

@@ -2,6 +2,7 @@
 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: xx-large;
+    
 }
 
 
@@ -19,15 +20,16 @@
 .h2 :hover{
    color:#1f17c0;
    text-shadow: rgb(20, 20, 18) 0px 2px 52px 2px;
+   /* color:#56749ec5 */
 }
 .cardi :hover{
-  color: blue;
+  color: black;
    /* opacity: 0.4; */
    transform: scale(1.02);
   
 }
 
-h6 :hover{
+h6:hover{
    text-decoration:'underline'
 
 }

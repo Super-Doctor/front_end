@@ -126,13 +126,13 @@ export default function Departments() {
 
                     return( 
                       
-                        <Card onClick={() => myDepartment('Eyes')}   className='cardi'  style={{   border: "1px solid white",maxWidth: '400px',margin:'2%', height:'20%',position:'relative'  ,backgroundColor:'#03012C45',color:'white', boxShadow:' rgb(136 136 136) 1px 2px 15px 2px'}}>
+                        <Card onClick={() => myDepartment('Eyes')}   className='cardi'  style={{  borderRadius:'15px', border: "1px solid white",maxWidth: '400px',margin:'2%', height:'20%',position:'relative'  ,backgroundColor:'#56749E',color:'#1d3056', boxShadow:' rgb(136 136 136) 1px 2px 15px 2px'}}>
                             <CardActionArea>
                                 <CardMedia className='imgeye' style={{ width:'100%',height:'300px' ,marginBottom:'60px'}}
                                     component="img"
                                     // height="50%"
                                     // width="60%"
-
+                                    // textShadow: ' #dadadb 0.5px 0.5px' 
                                     image={eye}
                                     alt="eyes"
                                 />
@@ -140,24 +140,24 @@ export default function Departments() {
                                     <Typography gutterBottom variant="h5" component="div" style={{fontFamily: 'Arial, Helvetica, sans-serif', marginLeft:'65px'  }}>
                                     {department.departmentType} Department
                                     </Typography>
-                                    <Typography variant="body2" className='texteye' style={{fontFamily: 'Arial, Helvetica, sans-serif', textIndent: '10px',textAlign:'center',color:"#1d3056" ,letterSpacing: '2px', fontWeight:'bold' ,textShadow: ' #dadadb 0.5px 0.5px' ,fontSize:'15px' }}>
+                                    <Typography variant="body2" className='texteye' style={{fontFamily: 'Arial, Helvetica, sans-serif', textIndent: '10px',textAlign:'center',color:"#1d3056" ,letterSpacing: '2px', fontWeight:'bold' ,fontSize:'15px' }}>
                                 
                                      A branch of medicine and surgery that deals with the diagnosis and treatment of disorders of the eye, An ophthalmologist is a physician who specializes in ophthalmology.
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056", letterSpacing: '1px' ,textShadow: ' #dadadb 0.4px 0.4px' , paddingTop:'10px'}}>
+                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056", letterSpacing: '1px' , paddingTop:'10px'}}>
                                     <h5> Department Chief : </h5> <h6 style={{ fontWeight:'bold'}}>  {department.leaderName}</h6>
                                      
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' ,textShadow: ' #dadadb 0.4px 0.4px'}}>
+                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' }}>
                                        <h5>   Phone Number: </h5><h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>{department.phoneNumber}</h6>
                                        </Typography>
 
 
-                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' ,textShadow: ' #dadadb 0.4px 0.4px'}}>
+                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' }}>
                                     <h5>  Working Days:</h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>{department.workingDays}</h6>
                                      
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' ,textShadow: ' #dadadb 0.4px 0.4px'}}>
+                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' }}>
                                      <h5> Working Hours:</h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>from morning {department.workingHours} evening</h6>
                                     
                                     </Typography>
@@ -180,7 +180,7 @@ export default function Departments() {
 
                     return( 
                       
-                        <Card onClick={() => myDepartment('Heart')}  className='cardi' style={{border: "1px solid white",maxWidth: '400px',margin:'2%', height:'20%',position:'relative'  ,backgroundColor:'#03012C45',color:'white', boxShadow:' rgb(136 136 136) 1px 2px 15px 2px'}}>
+                        <Card onClick={() => myDepartment('Heart')}  className='cardi' style={{borderRadius:'15px',border: "1px solid white",maxWidth: '400px',margin:'2%', height:'20%',position:'relative'  ,backgroundColor:'#56749E',color:'#1d3056', boxShadow:' rgb(136 136 136) 1px 2px 15px 2px'}}>
                             <CardActionArea>
                                 <CardMedia style={{ width:'100%', height:'300px', }}
                                     component="img"
@@ -195,27 +195,27 @@ export default function Departments() {
                                     <Typography gutterBottom variant="h5" component="div" style={{fontFamily: 'Arial, Helvetica, sans-serif', marginLeft:'65px' ,paddingTop:'20px'}}>
                                      {department.departmentType} Department
                                     </Typography>
-                                    <Typography variant="body2" color="white"  style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center',color:"#1d3056" ,letterSpacing: '2px', fontWeight:'bold' ,textShadow: ' #dadadb 0.4px 0.4px',fontSize:'15px'}}>
+                                    <Typography variant="body2" color="white"  style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center',color:"#1d3056" ,letterSpacing: '2px', fontWeight:'bold' ,fontSize:'15px'}}>
                                 
                                        Cardiology is a branch of medicine that deals with the disorders of the heart as well as some parts of the circulatory system ,The heart is a powerful muscle that pumps blood throughout the body so it is needed to be taken care of.
 
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056", letterSpacing: '1px' ,textShadow: ' #dadadb 0.4px 0.4px', paddingTop:'10px'}}>
-                                    <h5> Department Chief : </h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold' ,textShadow: ' #dadadb 0.4px 0.4px'}}>  {department.leaderName}</h6>
+                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056", letterSpacing: '1px' , paddingTop:'10px'}}>
+                                    <h5> Department Chief : </h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold' }}>  {department.leaderName}</h6>
                                      
                                     </Typography>
 
-                                    <Typography variant="body2" color="text.secondary"style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' ,textShadow: ' #dadadb 0.4px 0.4px'}}>
-                                       <h5>phone Number: </h5><h6 style={{ textDecoration:'underline',fontWeight:'bold' ,textShadow: ' #dadadb 0.4px 0.4px'}}>{department.phoneNumber}</h6>
+                                    <Typography variant="body2" color="text.secondary"style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' }}>
+                                       <h5>phone Number: </h5><h6 style={{ textDecoration:'underline',fontWeight:'bold' }}>{department.phoneNumber}</h6>
 
                                     </Typography>
 
 
-                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' ,textShadow: ' #dadadb 0.4px 0.4px'}}>
-                                    <h5>  Working Days:</h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold' ,textShadow: ' #dadadb 0.4px 0.4px'}}>{department.workingDays}</h6>
+                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' }}>
+                                    <h5>  Working Days:</h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold' }}>{department.workingDays}</h6>
                                      
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' ,textShadow: ' #dadadb 0.4px 0.4px'}}>
+                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' }}>
                                      <h5> Working  Hours:</h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>from morning {department.workingHours} evening</h6>
                                     
                                     </Typography>
@@ -242,7 +242,7 @@ export default function Departments() {
 
                     return( 
                       
-                        <Card onClick={() => myDepartment('Bones')}   className='cardi' style={{ border: "1px solid white",maxWidth: '400px',margin:'2%', height:'20%',position:'relative'  ,backgroundColor:'#03012C45',color:'white', boxShadow:' rgb(136 136 136) 1px 2px 15px 2px'}}>
+                        <Card onClick={() => myDepartment('Bones')}   className='cardi' style={{ borderRadius:'15px',border: "1px solid white",maxWidth: '400px',margin:'2%', height:'20%',position:'relative'  ,backgroundColor:'#56749E',color:'#1d3056', boxShadow:' rgb(136 136 136) 1px 2px 15px 2px'}}>
                             <CardActionArea>
                                 <CardMedia style={{ width:'100%'  ,height:'300px',marginBottom:'10px'}}
                                     component="img"
@@ -257,24 +257,24 @@ export default function Departments() {
                                     <Typography gutterBottom variant="h5" component="div" style={{fontFamily: 'Arial, Helvetica, sans-serif', marginLeft:'65px' }}>
                                      {department.departmentType} Department
                                     </Typography> 
-                                    <Typography variant="body2" color="text.secondary"  style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center',color:"#1d3056" ,letterSpacing: '2px', fontWeight:'bold' ,textShadow: ' #dadadb 0.4px 0.4px',fontSize:'15px'}} >
+                                    <Typography variant="body2" color="text.secondary"  style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center',color:"#1d3056" ,letterSpacing: '2px', fontWeight:'bold' ,fontSize:'15px'}} >
                                 
                                         Orthopaedics, is the branch of surgery concerned with conditions involving the musculoskeletal system. Orthopaedic surgeons use both surgical and nonsurgical means to treat musculoskeletal trauma, spine diseases, sports injuries, degenerative diseases 
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary"style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center', color:"#1d3056", letterSpacing: '1px' ,textShadow: ' #dadadb 0.4px 0.4px', paddingTop:'10px'}}>
+                                    <Typography variant="body2" color="text.secondary"style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center', color:"#1d3056", letterSpacing: '1px' , paddingTop:'10px'}}>
                                     <h5> Department Chief : </h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>  {department.leaderName}</h6>
                                      
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary"style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' ,textShadow: ' #dadadb 0.4px 0.4px'}}>
+                                    <Typography variant="body2" color="text.secondary"style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' }}>
                                        <h5>   Phone Number: </h5><h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>{department.phoneNumber}</h6>
                                        </Typography>
 
 
-                                    <Typography variant="body2" color="text.secondary"style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' ,textShadow: ' #dadadb 0.4px 0.4px'}}>
+                                    <Typography variant="body2" color="text.secondary"style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' }}>
                                     <h5>  Working Days:</h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>{department.workingDays}</h6>
                                      
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary"style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' ,textShadow: ' #dadadb 0.4px 0.4px'}}>
+                                    <Typography variant="body2" color="text.secondary"style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' }}>
                                      <h5> Working  Hours:</h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>from morning {department.workingHours} evening</h6>
                                     
                                     </Typography>
@@ -295,7 +295,7 @@ export default function Departments() {
 
                     return( 
                       
-                        <Card onClick={() => myDepartment('Kidney')}   className='cardi' style={{  border: "1px solid white",maxWidth: '400px',margin:'2%', height:'20%',position:'relative'  ,backgroundColor:'#03012C45',color:'white', boxShadow:' rgb(136 136 136) 1px 2px 15px 2px'}}>
+                        <Card onClick={() => myDepartment('Kidney')}   className='cardi' style={{ borderRadius:'15px', border: "1px solid white",maxWidth: '400px',margin:'2%', height:'20%',position:'relative'  ,backgroundColor:'#56749E',color:'#1d3056', boxShadow:' rgb(136 136 136) 1px 2px 15px 2px'}}>
                             <CardActionArea>
                                 <CardMedia style={{ width:'100%' ,height:'280px'}}
                                     component="img"
@@ -310,26 +310,26 @@ export default function Departments() {
                                     <Typography gutterBottom variant="h5" component="div" style={{fontFamily: 'Arial, Helvetica, sans-serif', marginLeft:'65px' }}>
                                      {department.departmentType} Department
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary" style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center',color:"#1d3056" ,letterSpacing: '2px', fontWeight:'bold' ,textShadow: ' #dadadb 0.4px 0.4px',fontSize:'15px'}}>
+                                    <Typography variant="body2" color="text.secondary" style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center',color:"#1d3056" ,letterSpacing: '2px', fontWeight:'bold' ,fontSize:'15px'}}>
                                 
                                         Nephrology is a specialty of adult internal medicine and pediatric medicine that concerns the study of the kidneys, specifically normal kidney function (renal physiology) and kidney disease (renal pathophysiology), the preservation of kidney health, and the treatment of kidney disease, from diet and medication to renal replacement therapy (dialysis and kidney transplantation). 
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary"style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center', color:"#1d3056", letterSpacing: '1px' ,textShadow: ' #dadadb 0.4px 0.4px', paddingTop:'10px'}}>
+                                    <Typography variant="body2" color="text.secondary"style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center', color:"#1d3056", letterSpacing: '1px' , paddingTop:'10px'}}>
                                     <h5> Department Chief : </h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>  {department.leaderName}</h6>
                                      
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary"style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' ,textShadow: ' #dadadb 0.4px 0.4px'}}>
+                                    <Typography variant="body2" color="text.secondary"style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' }}>
                                        <h5>   Phone Number: </h5><h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>{department.phoneNumber}</h6>
 
 
 
                                        </Typography>
 
-                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' ,textShadow: ' #dadadb 0.4px 0.4px'}}>
+                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' }}>
                                     <h5>  Working Days:</h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>{department.workingDays}</h6>
                                      
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' ,textShadow: ' #dadadb 0.4px 0.4px'}}>
+                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' }}>
                                      <h5> Working  Hours:</h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>from morning {department.workingHours} evening</h6>
                                     
                                     </Typography>
@@ -351,7 +351,7 @@ export default function Departments() {
 
                     return( 
                       
-                        <Card onClick={() => myDepartment('Children')}  className='cardi' style={{ border: "1px solid white",maxWidth: '400px',margin:'2%', height:'20%',position:'relative'  ,backgroundColor:'#03012C45',color:'white', boxShadow:' rgb(136 136 136) 1px 2px 15px 2px'}}>
+                        <Card onClick={() => myDepartment('Children')}  className='cardi' style={{ borderRadius:'15px',border: "1px solid white",maxWidth: '400px',margin:'2%', height:'20%',position:'relative'  ,backgroundColor:'#56749E',color:'#1d3056', boxShadow:' rgb(136 136 136) 1px 2px 15px 2px'}}>
                             <CardActionArea>
                             {/* width:'126%' */}
                                 <CardMedia style={{ width:'100%',height:'275px' ,marginBottom:'16px' }}
@@ -367,25 +367,25 @@ export default function Departments() {
                                     <Typography gutterBottom variant="h5" component="div" style={{fontFamily: 'Arial, Helvetica, sans-serif', marginLeft:'65px' }}>
                                      {department.departmentType} Department
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary"  style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center',color:"#1d3056" ,letterSpacing: '2px', fontWeight:'bold' ,textShadow: ' #dadadb 0.4px 0.4px',fontSize:'15px'}}>
+                                    <Typography variant="body2" color="text.secondary"  style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center',color:"#1d3056" ,letterSpacing: '2px', fontWeight:'bold' ,fontSize:'15px'}}>
                                 
                                        Paediatrics is the branch of medicine that involves the medical care of infants, children, and adolescents. The American Academy of Pediatrics recommends people seek pediatric care through the age of 21. In the United Kingdom, paediatrics covers patients until age 18.  Worldwide age limits of pediatrics have been trending up year over year. 
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary"style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center', color:"#1d3056", letterSpacing: '1px' ,textShadow: ' #dadadb 0.4px 0.4px', paddingTop:'10px'}}>
+                                    <Typography variant="body2" color="text.secondary"style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center', color:"#1d3056", letterSpacing: '1px' , paddingTop:'10px'}}>
                                     <h5> Department Chief : </h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>  {department.leaderName}</h6>
                                      
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' ,textShadow: ' #dadadb 0.4px 0.4px'}}>
+                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' }}>
                                        <h5>      Phone Number: </h5><h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>{department.phoneNumber}</h6>
 
                                     </Typography>
 
 
-                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' ,textShadow: ' #dadadb 0.4px 0.4px'}}>
+                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' }}>
                                     <h5>  Working Days:</h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>{department.workingDays}</h6>
                                      
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary"style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' ,textShadow: ' #dadadb 0.4px 0.4px'}}>
+                                    <Typography variant="body2" color="text.secondary"style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' }}>
                                      <h5> Working  Hours:</h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>from morning {department.workingHours} evening</h6>
                                     
                                     </Typography>
@@ -410,7 +410,7 @@ export default function Departments() {
 
                     return( 
                       
-                        <Card onClick={() => myDepartment('Skin')}   className='cardi' style={{ border: "1px solid white",maxWidth: '400px',margin:'2%', height:'20%',position:'relative'  ,backgroundColor:'#03012C45',color:'white', boxShadow:' rgb(136 136 136) 1px 2px 15px 2px'}}>
+                        <Card onClick={() => myDepartment('Skin')}   className='cardi' style={{ borderRadius:'15px',border: "1px solid white",maxWidth: '400px',margin:'2%', height:'20%',position:'relative'  ,backgroundColor:'#56749E',color:'#1d3056', boxShadow:' rgb(136 136 136) 1px 2px 15px 2px'}}>
                             <CardActionArea>
                                 <CardMedia className='cardImag' style={{ width:'100%' ,height:'280px',marginBottom:'75px'}}
                                     component="img"
@@ -421,27 +421,27 @@ export default function Departments() {
                                     alt="Skin"
                                 />
                                 <CardContent style={{overflowy: 'scroll' , marginBottom:'20px' ,position: 'relative',bottom: '75px'}}>
-                                    <Typography gutterBottom variant="h5" component="div" style={{fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', marginLeft:'100px'  ,textShadow: ' #dadadb 0.4px 0.4px'}}>
+                                    <Typography gutterBottom variant="h5" component="div" style={{fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', marginLeft:'100px'  }}>
                                       {department.departmentType} Department
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary"  style={{fontFamily:'Times New Roman", Times, serif',fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center',color:"#1d3056" ,letterSpacing: '2px', fontWeight:'bold', fontWeight:'bold' ,textShadow: ' #dadadb 0.4px 0.4px',fontSize:'15px'}}>
+                                    <Typography variant="body2" color="text.secondary"  style={{fontFamily:'Times New Roman", Times, serif',fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center',color:"#1d3056" ,letterSpacing: '2px', fontWeight:'bold', fontWeight:'bold' ,fontSize:'15px'}}>
                                 
                                        Dermatology is the branch of medicine dealing with the skin. It is a speciality with both medical and surgical aspects. A dermatologist is a specialist medical doctor who manages diseases related to skin, hair, nails, and some cosmetic problems. 
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056", letterSpacing: '1px' ,textShadow: ' #dadadb 0.4px 0.4px' , paddingTop:'10px' }}>
+                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056", letterSpacing: '1px' , paddingTop:'10px' }}>
                                     <h5> Department Chief : </h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>  {department.leaderName}</h6>
                                      
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px',textShadow: ' #dadadb 0.4px 0.4px'}}>
+                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px'}}>
                                        <h5>      Phone Number: </h5><h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>{department.phoneNumber}</h6>
                                        </Typography>
 
 
-                                    <Typography variant="body2" color="text.secondary"style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' ,textShadow: ' #dadadb 0.4px 0.4px'}}>
+                                    <Typography variant="body2" color="text.secondary"style={{fontFamily: 'Arial, Helvetica, sans-serif', textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' }}>
                                     <h5>  Working Days:</h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>{department.workingDays}</h6>
                                      
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px',textShadow: ' #dadadb 0.4px 0.4px'}}>
+                                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px'}}>
                                      <h5> Working  Hours:</h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>from morning {department.workingHours} evening</h6>
                                     
                                     </Typography>
@@ -491,24 +491,24 @@ export default function Departments() {
 //                    <Typography gutterBottom variant="h5" component="div" style={{fontFamily: 'Arial, Helvetica, sans-serif', marginLeft:'65px'  }}>
 //                    {department.departmentType} Department
 //                    </Typography>
-//                    <Typography variant="body2"  style={{fontFamily: 'Arial, Helvetica, sans-serif', textIndent: '10px',textAlign:'center',color:"#1d3056" ,letterSpacing: '2px', fontWeight:'bold' ,textShadow: ' #dadadb 0.5px 0.5px' ,fontSize:'15px'}}>
+//                    <Typography variant="body2"  style={{fontFamily: 'Arial, Helvetica, sans-serif', textIndent: '10px',textAlign:'center',color:"#1d3056" ,letterSpacing: '2px', fontWeight:'bold' ,fontSize:'15px'}}>
                
 //                     A branch of medicine and surgery that deals with the diagnosis and treatment of disorders of the eye, An ophthalmologist is a physician who specializes in ophthalmology.
 //                    </Typography>
-//                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056", letterSpacing: '1px' ,textShadow: ' #dadadb 0.4px 0.4px' , paddingTop:'10px'}}>
+//                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056", letterSpacing: '1px' , paddingTop:'10px'}}>
 //                    <h5> Department Chief : </h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>  {department.leaderName}</h6>
                     
 //                    </Typography>
-//                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' ,textShadow: ' #dadadb 0.4px 0.4px'}}>
+//                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' }}>
 //                       <h5>      Phone Number: </h5><h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>{department.phoneNumber}</h6>
 //                       </Typography>
 
 
-//                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' ,textShadow: ' #dadadb 0.4px 0.4px'}}>
+//                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' }}>
 //                    <h5>  Working Days:</h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>{department.workingDays}</h6>
                     
 //                    </Typography>
-//                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' ,textShadow: ' #dadadb 0.4px 0.4px'}}>
+//                    <Typography variant="body2" color="text.secondary"style={{ fontFamily: 'Arial, Helvetica, sans-serif',textAlign:'center', color:"#1d3056" ,letterSpacing: '2px' }}>
 //                     <h5> Working  Hours:</h5> <h6 style={{ textDecoration:'underline',fontWeight:'bold'}}>from morning {department.workingHours} evening</h6>
                    
 //                    </Typography>
