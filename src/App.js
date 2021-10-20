@@ -22,13 +22,16 @@ import AboutUs from '../src/components/AboutUs/AboutUs'
 
 
 import Modals from './components/Departement/model'
+import UsersList from './components/Chat/UsersList';
 
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { show: false, appointmentData: [] };
+    this.state = { 
+      show: false,
+       appointmentData: [] };
   }
 
   showmodal = () => {
@@ -36,7 +39,7 @@ export default class App extends React.Component {
       show: !this.state.show,
     });
     let getDoctorAppointment = async (doctorId) => {
-      let appointmentsLink = `https://super-doctors.herokuapp.com/AllAppointments/${doctorId}`;
+      let appointmentsLink = `https://super-doctors.herokuapp.com/doctorPatients/${doctorId}`;
 
       await axios
         .get(appointmentsLink)
@@ -52,7 +55,13 @@ export default class App extends React.Component {
     };
   };
   // static logincontext = useContext(LoginContext);
+  handleClose = async () => {
+    this.setState({
+        show: false,
+        
 
+    })
+}
   static contextType = LoginContext;
 
   // componentDidMount () {
@@ -64,10 +73,10 @@ export default class App extends React.Component {
   // }
 
   // }
-
   render() {
+
     return (
-      <div>
+      <div style={{backgroundColor:'#eee'}}>
 
         <Header />
         <Router >
@@ -91,19 +100,25 @@ export default class App extends React.Component {
                 <PatientsAppointments />
               </Route>
 
+              <Route path="/chat">
+                <UsersList />
+              </Route>
+
               <Route path="/patientslist">
                 {console.log(this.context.userCapability)};
                 {this.context.userCapability > 4 ?
                   <>
                     <PatientsList />
 
-                    <button onClick={this.showmodal}>Update medical information
-                      <AddModal appointmentData={this.state.appointmentData}
-                        // doctorId={this.props.users[index].user.id}
-                        showmodalFunc={this.showmodal}
-                        showmodal={this.state.show} />
-
+                    <button onClick={this.showmodal}>Add medical information
                     </button>
+                    {this.state.show && (
+                      <AddModal appointmentData={this.state.appointmentData}
+                        // doctorId={this.props.users.id}
+                        showmodalFunc={this.showmodal}
+                        showmodal={this.state.show} 
+                        handleClose={this.handleClose}/>
+                    )}
 
                   </> : <PatientsList />}
 

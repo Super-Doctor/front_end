@@ -5,7 +5,7 @@ import { Navbar, Nav, Container, Button, Dropdown } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import Footer from "./footer";
-import './home.css'
+import './header.css'
 import logo from './slideimg/download.png'
 import { LoginContext } from '../context/login';
 import { When } from 'react-if';
@@ -32,19 +32,20 @@ function Header() {
                 </Link>
               </div>
             </Navbar.Brand>
-            <Navbar.Brand className='title' style={{color: "#AFB3F7", letterSpacing:'2px'}} href="/">Super Doctor</Navbar.Brand>
+            <Navbar.Brand className='title'  style={{color: "#AFB3F7", letterSpacing:'2px', marginLeft:'-590px', marginTop:'-20px'}} href="/">Super Doctor</Navbar.Brand>
             <Nav className="me-auto">
               <Nav.Link className='navi' style={{color: "#AFB3F7", letterSpacing:'2px'}} href="/">Home</Nav.Link>
               <Nav.Link className='navi' style={{color: "#AFB3F7", letterSpacing:'2px'}} href="/departments">Departments</Nav.Link>
               <Nav.Link className='navi' style={{color: "#AFB3F7", letterSpacing:'2px'}} href="/aboutus">About Us</Nav.Link>
- 
+              {Login.loggedIn &&  <Nav.Link  className='navi' style={{color: "#AFB3F7", letterSpacing:'2px'}} href="/chat">Chat</Nav.Link>}
+
 
             </Nav>
 
           </Container>
           <When condition={!Login.loggedIn && !Login.user}>
 
-            <Button  className='login' onClick={Login.toggleLogInState}>Login</Button>
+            <Button style={{backgroundColor:'#03012C'}}  className='login' onClick={Login.toggleLogInState}>Login</Button>
           </When>
 
           <When condition={Login.loggedIn && Login.user}>
@@ -55,8 +56,8 @@ function Header() {
             {Login.user && Login.user.user.roleId == 1 &&
               <>
                 <div className="dropdown">
-                  <Dropdown className="menuButton" >
-                    <Dropdown.Toggle id="dropdown-autoclose-true">
+                  <Dropdown className="menuButton"  style={{backgroundColor:'#03012C'}} >
+                    <Dropdown.Toggle id="dropdown-autoclose-true"  style={{backgroundColor:'#03012C'}}>
                       <img className='userImg'
                         src={menu}
                         height='25px'
@@ -68,7 +69,7 @@ function Header() {
                       <Dropdown.Item href="/patientslist" >Patients List</Dropdown.Item>
                       <Dropdown.Item  href="/patientsAppointment" >My Appointments</Dropdown.Item>
                       <Dropdown.Item >Patient Item</Dropdown.Item>
-                      <Button className='logout'  onClick={Login.logout}>Logout</Button>
+                      <Button  style={{backgroundColor:'#03012C'}} className='logout'  onClick={Login.logout}>Logout</Button>
                     </Dropdown.Menu>
                   </Dropdown>
                 </div>
@@ -80,7 +81,7 @@ function Header() {
               <>
                   <div className="dropdown">
                     <Dropdown className="d-inline mx-2"  >
-                      <Dropdown.Toggle id="dropdown-autoclose-true">
+                      <Dropdown.Toggle id="dropdown-autoclose-true"  style={{backgroundColor:'#03012C'}}>
                         <img className='userImg'
                           src={menu}
                           width='20px'
@@ -94,7 +95,7 @@ function Header() {
                         <Dropdown.Item href="/appointments"> My Appointments </Dropdown.Item>
                         <Dropdown.Item href="/patientslist" >Patients List</Dropdown.Item>
                         
-                        <Button className='logout' onClick={Login.logout}>Logout</Button>
+                        <Button  style={{backgroundColor:'#03012C'}} className='logout' onClick={Login.logout}>Logout</Button>
                       </Dropdown.Menu>
                     </Dropdown>
                   </div>

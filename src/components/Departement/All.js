@@ -13,7 +13,7 @@ import Card from "@mui/material/Card";
 import Modals from "./model";
 import axios from "axios";
 
-
+import './All.css';
 
 
 
@@ -107,16 +107,16 @@ class All extends React.Component {
                     <Typography gutterBottom variant="h5" component="div">
                       Name: {this.props.users[index].user.userName}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="h6" color="text.secondary">
                       Gender: {this.props.users[index].user.gender}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="h6" color="text.secondary">
                       Email: {this.props.users[index].user.email}
                     </Typography>
                   </CardContent>
                 </CardActionArea>
                 <CardActions>
-                  <Button size="small" color="primary" onClick={this.showmodal}>
+                  <Button size="small" color="primary" onClick={this.showmodal} className="cardbTN">
                     Book an Appoinment !
                   </Button>
                   {this.state.show && (
@@ -126,7 +126,15 @@ class All extends React.Component {
                       showmodalFunc={this.showmodal}
                       showmodal={this.state.show}
                     />
+                  
                   )}
+{/* {this.state.show && (
+<ModalsAdd 
+                    appointmentData={this.state.appointmentData}
+                    doctorId={this.props.users[index].user.id}
+                    showmodalFunc={this.showmodal}
+                    showmodal={this.state.show}
+                  />)} */}
                 </CardActions>
               </Card>
             );
