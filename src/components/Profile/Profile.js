@@ -12,7 +12,7 @@ export default function Profile(props) {
 
     return (
 
-        <>
+        <div style={{marginTop:'150px'}}>
             {
                 Login.loggedIn &&
                 <>
@@ -62,6 +62,6 @@ export default function Profile(props) {
                 </>
             }
 
-        </>
+        </div>
     );
 }

@@ -61,3 +61,7 @@
 .namespatient span:last-child {
     float: right;
 }
+
+#usersList {
+    margin-top: 100px;
+}

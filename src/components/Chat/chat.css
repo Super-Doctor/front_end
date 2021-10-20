@@ -1,4 +1,6 @@
 .mainChat{
+    margin-top: 100px;
+
     width: 80%;
     display: block;
     margin-left: auto;
@@ -74,7 +76,6 @@
     width: 50%;
     margin-left: auto;
     margin-right: auto;
-
     display: flex;
 }
 
@@ -86,13 +87,41 @@ height: 40px;
 background-color: rgb(201, 201, 201);
 
 }
+#chatbuttons{
+    width: 25%;
+    display: block;
+    float: right;
+
+}
+
+#video{
+width: 50%;
+display: block;
+float: left;
+border: rgb(201, 201, 201) solid 2px;
+background-color: #6585b1;
+border-radius: 30px;
+text-align: center;
+}
+
+#send{
+width: 50%;
+display: block;
+float: right;
+border: rgb(201, 201, 201) solid 2px;
+background-color: #6585b1;
+border-radius: 30px;
+text-align: center;
+}
+
+
 .input {
-    width: 90%;
+    width: 75%;
     float: left;
     height: 40px;
     border-radius: 30px;
 }
-#icon{
+/* #icon{
     width: 10%;
     text-align: center;
     height: 40px;
@@ -104,7 +133,7 @@ background-color: rgb(201, 201, 201);
 
 
 
-}
+} */
 
 
 

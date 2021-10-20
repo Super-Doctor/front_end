@@ -1,0 +1,91 @@
+/*header*/
+.title{
+    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      letter-spacing: 4px;
+      font-weight: 500;
+      margin-left: -500px;
+      font-size: large;
+    }
+      .navi :first-child {
+        margin-left: 10;
+      }
+      
+      .me-auto{
+        margin-left: 450px;
+      }
+      .navi  {
+        margin-right: 50px;
+        text-decoration: none;
+        color: #03012C;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1.9rem;
+        font-weight: 700;
+        font-size: 15px;
+      }
+    
+      .headerContainer {
+        margin-left: 10%;
+        margin-right: 10%;
+      }
+      
+      
+      .navi > a > a {
+        position: relative;
+      }
+      .navi > a > a:after {    
+        background: none repeat scroll 0 0 transparent;
+        bottom: -10px;
+        content: "";
+        display: block;
+        height: 3pt;
+        left: 50%;
+        position: absolute;
+        background: var(--main-color);
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+        
+      }
+      .navbar-nav > a:hover > a:after { 
+        width: 100%; 
+        left: 0; 
+      }
+    
+     
+    .logout{
+      margin-left:10px
+    }
+    
+     .dropdown{
+       margin-right: 30px;
+       background-color: rgb(238,238,238);
+       
+     }
+
+     .dropdownlistitem{
+       margin-bottom: 10px;}
+     .menuItems{
+      background-color: rgb(238,238,238);
+
+     }
+     .dropdownlist {
+      margin-left: -120px;
+      background-color: rgb(238,238,238);
+    }
+     .login{
+      margin-right: 100px;
+     }
+    
+     .menuButton {
+    color: #fff; 
+    }
+
+    #headerBody{
+      z-index: +100;
+      position: fixed;
+     width: 100%;
+    top: 0;
+    background-color: rgb(238,238,238);
+/* border-bottom: black solid 3px; */
+box-shadow: rgba(0, 0, 0, 0.411) 0px 2px 4px;
+    }

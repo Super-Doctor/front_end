@@ -16,7 +16,8 @@ import { LoginContext } from '../../context/login';
 import { When } from "react-if";
 import Chat from "../Chat/Chat";
 import { io } from "socket.io-client";
-
+import { textAlign } from "@mui/system";
+import './records.css'
 export default function RecordList(props) {
     const API = "https://super-doctors.herokuapp.com/patientRecords";
 
@@ -45,22 +46,22 @@ export default function RecordList(props) {
 
 
     return (
-        <>
+        <div style={{marginTop:'100px' , marginBottom:'30px'}} >
 
            
 
-                <h1>Patient Records</h1>
+                <h1 style={{textAlign:'center'}}>Patient Records</h1>
 
 
                 {recordsPatientList.patientRecords &&
-                    <div>
+                    <div id='patientrecodoss'>
                         {
 
                             recordsPatientList.patientRecords.map((record, index) => {
 
                                 //    if(props.patientId==recordsList.patientId){
                                 return (
-                                    <Card style={{ display: "inline-block" }} sx={{ maxWidth: 345 }} className='cardieB'>
+                                    <Card style={{ display: "inline-block" ,borderRadius:'15px'  }} sx={{ maxWidth: 345 }} className='cardieB'>
                                         <CardActionArea>
                                             <CardMedia
                                                 component="img"
@@ -103,7 +104,7 @@ export default function RecordList(props) {
 
 
 
-        </>
+        </div>
 
     )
 }

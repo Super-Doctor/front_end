@@ -2,13 +2,13 @@
 
 text-align: center;
 font-family:Arial, Helvetica, sans-serif;
-color:gray
+color:#33516F
 
 }
 
-.cardieB :hover{
+.cardieB:hover{
 
-    /* box-shadow: rgb(112, 110, 110) 0.5px 0.5px 0px 0px ; */
+    box-shadow: rgb(112, 110, 110) 0.5px 0.5px 2px 2px ;
     
     }
     
@@ -16,13 +16,30 @@ color:gray
 
 .cardbTN{
 position: relative;
-left:50px;
-    color:#c7c8d4;
-    background-color: #0808b8;
+left:60px;
+/* width: 150px; */
+/* height: 30px; */
+text-align:start;
+    color:#cad0d6;
+    background-color: #56749E;
+    /* font-weight: bold; */
+    border-radius: 5px;
 }
 
 
-/* .cardbTN :hover{
-    color:#676aa5;
-    background-color: #7e7e8d;
-} */
+.cardbTN:hover{
+    color:#e7e7e7;
+    background-color: #385174;
+}
+
+#doctorcards{
+    width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+
+}

@@ -6,18 +6,31 @@ const useForm = (callback) => {
 
   const handleSubmit = (event) => {
     if (event) event.preventDefault();
+    console.log('from hoookss',values);
     callback(values);
+    
   };
 
   const handleChange = (event) => {
     event.persist();
+    setValues({});
     setValues(values => ({ ...values, [event.target.name]: event.target.value }));
+  };
+
+  const startVideo = () => {
+    
+    setValues({message : 'https://hema-video-chat.herokuapp.com/?room=hospital_1'})
+    console.log('from hoookss' ,values);
+
+   callback(values);
+  
   };
 
   return {
     handleChange,
     handleSubmit,
     values,
+    startVideo
   };
 };
 

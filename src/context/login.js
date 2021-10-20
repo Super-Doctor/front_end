@@ -79,7 +79,7 @@ export default function LoginProvider(props) {
 
     },
 
-     signUp =async (user)=>{
+     signUp = async (user)=>{
          const API = 'https://super-doctors.herokuapp.com'
          console.log("Sign Up User ---> ",user);
         //  "userName": "ghidaa",
@@ -132,15 +132,6 @@ export default function LoginProvider(props) {
         .catch((err) => {
           console.log(err);
         });
-
-    
-
-
-
-
-
-
-
 
         toggleLogInState();
     }

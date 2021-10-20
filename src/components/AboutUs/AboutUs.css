@@ -11,7 +11,7 @@ ul {
       margin-right: 20px;
     }  */
   .aboutus {
-    margin-top: 5rem;
+    margin-top: 100px;
     margin-left: 10%;
     margin-right: 10%;
   }
@@ -58,7 +58,7 @@ ul {
     position: absolute;
     top: 0;
     left: 20px;
-    z-index: 9999;
+    z-index: 90;
   }
   
   .photo {
@@ -157,5 +157,9 @@ ul {
   
   .socialmedia a {
     color: #252422;
+  }
+
+  .socialmedia li {
+    margin-right: 15px;
   }
   
