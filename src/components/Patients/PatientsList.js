@@ -3,11 +3,11 @@ import axios from 'axios';
 import { LoginContext } from '../../context/login';
 import RecordList from './RecordList';
 
-import { Button, Card, Elevation }  from  'react-bootstrap'
+import { Button, Card, Elevation } from 'react-bootstrap'
 // import { Button, Card, Elevation } from "@blueprintjs/core";
 import './patients.css'
 import AddModal from './AddModal';
-import { Row ,Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { fontWeight } from '@mui/system';
 // import Table from 'react-bootstrap/Table'
 export default function PatientsList() {
@@ -51,7 +51,7 @@ export default function PatientsList() {
 
 
     return (
-        <>
+        <div style={{ marginTop: '100px', marginBottom: '100px' }}>
             {patientId != '' &&
                 <>
                     <RecordList users={recordsList} patientId={patientId} />
@@ -63,17 +63,17 @@ export default function PatientsList() {
                 patientId == '' &&
                 <>
 
-                    <h1 style={{textAlign:"center" ,color:'#56749E'}}>Patients List</h1>
+                    <h1 style={{ textAlign: "center" }}>Patients List</h1>
                     {recordsList.map((record, idx) => {
                         return (
-                           <span style={{textAlign:"center"}} striped bordered hover onClick={() => showRecord(`${record.patientId}`)} key={record.id}  >
-                           
-                                    {formatted.map(user => {
-                                        if (user.id == record.patientId) {
-                                            
-                                            return (
+                            <span style={{ textAlign: "center" }} striped bordered hover onClick={() => showRecord(`${record.patientId}`)} key={record.id}  >
+
+                                {formatted.map(user => {
+                                    if (user.id == record.patientId) {
+
+                                        return (
                                             //     <Card style={{ width: '18rem' }}>
-                                               
+
                                             //     <Card.Body>
                                             //       <Card.Title>Card Title</Card.Title>
                                             //       <Card.Text>
@@ -84,48 +84,48 @@ export default function PatientsList() {
                                             //     </Card.Body>
                                             //   </Card>          
                                             <>
-                                            <Row sm={3} style={{display: 'inline-flex'}}>
-                                                <Col sm={3}>
-                                    <Card style={{ width: '450px' }} className='patientsCard' >
-                                    {/* <Card.Img variant="top"style={{ width: '100%',borderRadius: '15px'}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHctWizTzr1CJyuMxCPtqxPdYoXD03Ezf-OQ&usqp=CAU" /> */}
-                                 
-                                 <Card.Title>  {`PatientName: ${user.userName}`}</Card.Title>
-                                 
-                                     <Card.Text style={{fontFamily:'sans-serif',color:'#33516F' ,fontWeight:'bolder'   ,boxSizing:'content-box' ,textAlign:'center' }}>      {`Patient ID: (${user.id})`} </Card.Text>
+                                                <Row sm={3} style={{ display: 'inline-flex' }}>
+                                                    <Col sm={3}>
+                                                        <Card style={{ width: '450px' }} className='patientsCard' >
+                                                            {/* <Card.Img variant="top"style={{ width: '100%',borderRadius: '15px'}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHctWizTzr1CJyuMxCPtqxPdYoXD03Ezf-OQ&usqp=CAU" /> */}
 
-                                    <Card.Text style={{fontFamily:'sans-serif',color:'#33516F' ,fontWeight:'bolder',textAlign:'center', boxSizing:'content-box'}}>  {`Doctor ID: (${record.doctorId})`} </Card.Text>
-                                   <Card.Text style={{fontFamily:'sans-serif', color:'#33516F',fontWeight:'bolder',textAlign:'center',boxSizing:'content-box'}}> {`CheckIn Date: ${record.checkInDate}`} </Card.Text>
-                                  <Card.Text style={{ fontFamily:'sans-serif',color:'#33516F' ,fontWeight:'bolder',textAlign:'center',boxSizing:'content-box'}}>  {`Medical Case: ${record.medicalCase}`}</Card.Text>
+                                                            <Card.Title>  {`PatientName: ${user.userName}`}</Card.Title>
 
-                                 {/* <Button>Submit</Button> */}
-                                 
-                                  </Card>
-                                  </Col>
-                                  </Row>
+                                                            <Card.Text style={{ fontFamily: 'sans-serif', color: '#33516F', fontWeight: 'bolder', boxSizing: 'content-box', textAlign: 'center' }}>      {`Patient ID: (${user.id})`} </Card.Text>
+
+                                                            <Card.Text style={{ fontFamily: 'sans-serif', color: '#33516F', fontWeight: 'bolder', textAlign: 'center', boxSizing: 'content-box' }}>  {`Doctor ID: (${record.doctorId})`} </Card.Text>
+                                                            <Card.Text style={{ fontFamily: 'sans-serif', color: '#33516F', fontWeight: 'bolder', textAlign: 'center', boxSizing: 'content-box' }}> {`CheckIn Date: ${record.checkInDate}`} </Card.Text>
+                                                            <Card.Text style={{ fontFamily: 'sans-serif', color: '#33516F', fontWeight: 'bolder', textAlign: 'center', boxSizing: 'content-box' }}>  {`Medical Case: ${record.medicalCase}`}</Card.Text>
+
+                                                            {/* <Button>Submit</Button> */}
+
+                                                        </Card>
+                                                    </Col>
+                                                </Row>
                                             </>)
-                                     }
-                                        
-                                    })}
-           
-                              
-                           
-                                 
-                                 
-                                    </span> 
-                                    
-                                   
+                                    }
+
+                                })}
+
+
+
+
+
+                            </span>
+
+
                         )
                     })}
 
-                    
-                                  
+
+
                 </>
             }
 
 
 
 
-        </>
+        </div>
 
     )
 }

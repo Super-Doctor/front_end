@@ -47,7 +47,7 @@ class All extends React.Component {
   };
   render() {
     return (
-      <div>
+      <div >
         <Carousel>
           <Carousel.Item interval={1500}>
             <img
@@ -83,63 +83,64 @@ class All extends React.Component {
             />
           </Carousel.Item>
         </Carousel>
-
-        {this.props.users.map((doctor, index) => {
-          if (
-            this.props.users[index].user.departmentId.toLowerCase() ==
-            this.props.depType
-          ) {
-            return (
-              <Card
-                key={this.props.users[index].user.id}
-                style={{ display: "inline-block" }}
-                sx={{ maxWidth: 345 }}
-                className="cardieB"
-              >
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    height="300"
-                    image="https://thumbs.dreamstime.com/b/boy-girl-doctors-cartoon-characters-profession-s-costume-doctor-vector-illustration-male-female-doctors-cartoon-147440124.jpg"
-                    alt="eyes"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      Name: {this.props.users[index].user.userName}
-                    </Typography>
-                    <Typography variant="h6" color="text.secondary">
-                      Gender: {this.props.users[index].user.gender}
-                    </Typography>
-                    <Typography variant="h6" color="text.secondary">
-                      Email: {this.props.users[index].user.email}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-                <CardActions>
-                  <button size="small"  onClick={this.showmodal} className="cardbTN">
-                    Book an Appoinment!
-                  </button>
-                  {this.state.show && (
-                    <Modals
-                      appointmentData={this.state.appointmentData}
-                      doctorId={this.props.users[index].user.id}
-                      showmodalFunc={this.showmodal}
-                      showmodal={this.state.show}
+        <div id='doctorcards'>
+          {this.props.users.map((doctor, index) => {
+            if (
+              this.props.users[index].user.departmentId.toLowerCase() ==
+              this.props.depType
+            ) {
+              return (
+                <Card
+                  key={this.props.users[index].user.id}
+                  style={{ display: "inline-block" , borderRadius:'15px' }}
+                  sx={{ maxWidth: 345 }}
+                  className="cardieB"
+                >
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="300"
+                      image="https://thumbs.dreamstime.com/b/boy-girl-doctors-cartoon-characters-profession-s-costume-doctor-vector-illustration-male-female-doctors-cartoon-147440124.jpg"
+                      alt="eyes"
                     />
-                  
-                  )}
-{/* {this.state.show && (
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        Name: {this.props.users[index].user.userName}
+                      </Typography>
+                      <Typography variant="h6" color="text.secondary">
+                        Gender: {this.props.users[index].user.gender}
+                      </Typography>
+                      <Typography variant="h6" color="text.secondary">
+                        Email: {this.props.users[index].user.email}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions>
+                    <button size="small" onClick={this.showmodal} className="cardbTN">
+                      Book an Appoinment!
+                    </button>
+                    {this.state.show && (
+                      <Modals
+                        appointmentData={this.state.appointmentData}
+                        doctorId={this.props.users[index].user.id}
+                        showmodalFunc={this.showmodal}
+                        showmodal={this.state.show}
+                      />
+
+                    )}
+                    {/* {this.state.show && (
 <ModalsAdd 
                     appointmentData={this.state.appointmentData}
                     doctorId={this.props.users[index].user.id}
                     showmodalFunc={this.showmodal}
                     showmodal={this.state.show}
                   />)} */}
-                </CardActions>
-              </Card>
-            );
-          }
-        })}
+                  </CardActions>
+                </Card>
+              );
+            }
+          })}
+        </div>
       </div>
     );
   }

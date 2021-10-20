@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 //import LoginProvider,{LoginContext} from './context/loginContext';
 import App from './App.js';
 import LoginProvider from './context/login.js';
-
+import './index.css'
 class Main extends React.Component {
   // componentDidMount(){
   //   document.title = "Super Doctor"

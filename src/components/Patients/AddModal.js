@@ -81,7 +81,7 @@ e.preventDefault()
   }
 
   return (
-    <>
+    <div style={{marginBottom:'100px'}}>
       <Modal show={props.showmodal} onHide={props.showmodalFunc}>
           <Form onSubmit={bookFunc} >
         <Modal.Header closeButton>
@@ -89,42 +89,42 @@ e.preventDefault()
         </Modal.Header>
         <Modal.Body>
         
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-4" controlId="formBasicEmail">
                     <Form.Label>checkInDate</Form.Label>
                     <Form.Control  type="date" name='checkInDate'    />
                     <Form.Text className="text-muted">
                     </Form.Text>
                     
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-4" controlId="formBasicEmail">
                     <Form.Label>checkOutDate</Form.Label>
                     <Form.Control  type="date"   name='checkOutDate'  />
                     <Form.Text className="text-muted">
                     </Form.Text>
                     
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-4" controlId="formBasicEmail">
                     <Form.Label>medicalCase</Form.Label>
                     <Form.Control   name='medicalCase'   />
                     <Form.Text className="text-muted">
                     </Form.Text>
                     
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-4" controlId="formBasicEmail">
                     <Form.Label>doctorName</Form.Label>
                     <Form.Control  name='doctorName'      />
                     <Form.Text className="text-muted">
                     </Form.Text>
                     
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-4" controlId="formBasicEmail">
                     <Form.Label>doctorReport</Form.Label>
                     <Form.Control    name='doctorReport'   />
                     <Form.Text className="text-muted">
                     </Form.Text>
                     
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-4" controlId="formBasicEmail">
                     <Form.Label>patientId</Form.Label>
                     <Form.Control  name='patientId'   />
                     <Form.Text className="text-muted" >
@@ -132,7 +132,7 @@ e.preventDefault()
                     </Form.Text>
                     
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-4" controlId="formBasicEmail">
                     <Form.Label>doctorId</Form.Label>
                     <Form.Control  name='doctorId'    />
                     <Form.Text className="text-muted">
@@ -141,14 +141,14 @@ e.preventDefault()
                     </Form.Text>
                     
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-4" controlId="formBasicEmail">
                     <Form.Label>departmentId</Form.Label>
                     <Form.Control   name='departmentId'     />
                     <Form.Text className="text-muted">
                     </Form.Text>
                     
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-4" controlId="formBasicEmail">
                     <Form.Label>status</Form.Label>
                     <Form.Control    name='status'   />
                     <Form.Text className="text-muted">
@@ -164,7 +164,7 @@ e.preventDefault()
         </Modal.Footer>
         </Form>
       </Modal>
-    </>
+    </div>
   );
 }
 

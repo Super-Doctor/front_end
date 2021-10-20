@@ -10,9 +10,19 @@
     text-align: center;
 }
 
+
+
 .signup{
+    margin-top: 100px;
     display: block;
-    width: 80%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 100px;
+    
+}
+
+#signupspan{
+  color: blue;
+  cursor: pointer;
 }

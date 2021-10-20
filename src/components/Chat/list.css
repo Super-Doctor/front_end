@@ -1,0 +1,67 @@
+.list {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    list-style: none;
+}
+
+.list h1 {
+    color: #33516F;
+    border-bottom: #56749E solid 2px;
+    width: 40%;
+}
+
+.names li {
+    margin: 10px;
+    width: 40%;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: #56749E dotted 1px;
+
+}
+
+.names {
+    width: 100%;
+}
+
+.names span:last-child{
+    width: fit-content;
+    float: right;
+}
+
+#name{
+   position: absolute;
+   font-size: larger;
+   font-weight: bold;
+}
+#department {
+    position: absolute;
+    left: 30%;
+    font-size: large;
+
+
+}
+.namespatient {
+    width: 100%;
+    
+}
+
+.namespatient li {
+    margin: 10px;
+    width: 40%;
+    height: 40px;
+    line-height: 40px;
+    font-size: larger;
+    font-weight: bold;
+    border-bottom: #56749E dotted 1px;
+
+}
+    
+.namespatient span:last-child {
+    float: right;
+}
+
+#usersList {
+    margin-top: 100px;
+}

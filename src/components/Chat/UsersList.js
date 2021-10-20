@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 import { LoginContext } from '../../context/login';
 import { io } from "socket.io-client";
 import axios from 'axios';
-
+import './list.css'
 
 
 export default function UsersList() {
@@ -13,19 +13,19 @@ export default function UsersList() {
     const [state, startChat] = useState(false);
     const [list, setList] = useState([]);
     const [reciver, setReciver] = useState();
-    const [online , setonline] =  useState('');
+    const [online, setonline] = useState('');
     const socket = Login.socket;
 
 
     const API = 'https://super-doctors.herokuapp.com';
 
-   if(Login.user) {
-       socket.on('onlineState' , data=>{
-           console.log(data , " Is Online");
-           setonline(data)
+    if (Login.user) {
+        socket.on('onlineState', data => {
+            console.log(data, " Is Online");
+            setonline(data)
 
-       })
-   }
+        })
+    }
 
     // let socket = io.connect('http://localhost:3001', { transports: ['websocket'] });
 
@@ -46,9 +46,9 @@ export default function UsersList() {
 
                     // recordsLists.data.map(record => {
                     //     if (user.user.id == record.patientId) {
-                         
+
                     //         array.push({ userName: user.user.userName, id: user.user.id })
-                             
+
                     //     }
                     // })
                 })
@@ -62,11 +62,11 @@ export default function UsersList() {
                 console.log('Patients ------->', Doctors.data);
 
                 Doctors.data.map(user => {
-                    array.push({ userName: user.user.userName, id: user.user.id })
+                    array.push({ userName: user.user.userName, id: user.user.id, department: user.user.departmentId })
 
                     // recordsLists.data.patientRecords.map(record => {
                     //     if (user.user.id == record.doctorId) {
-                         
+
                     //         array.push({ userName: user.user.userName, id: user.user.id })
                     //     }
                     // })
@@ -74,7 +74,7 @@ export default function UsersList() {
             }
         }
 
-     
+
         setList([...list, ...array])
 
 
@@ -99,55 +99,66 @@ export default function UsersList() {
 
 
     return (
-        <>
+        <div id='usersList'>
             {Login.user &&
                 <>
-                {console.log('online From ' , online)}
+                    {console.log('online From ', online)}
                     <When condition={!state}>
                         <When condition={Login.user.user.roleId == 1} >
-                            <div>
+                            <div className='list'>
                                 <h1>Doctors List</h1>
+                                <div className="names">
+                                    {list.map((doctor, idx) => {
 
-                                {list.map((doctor,idx) => {
-                                    
-                                       
+
                                         return (
-                                      
-                                            <li key={idx} className='online' onClick={()=>handlestartChat(doctor)}><span></span>{doctor.userName}</li>
+
+                                            <li key={idx} className='online' onClick={() => handlestartChat(doctor)}>
+                                                <span id="name">Name : Dr. {(doctor.userName).toUpperCase()}</span>
+                                                <span id="department">Department : {doctor.department}</span>
+                                                <span><img src="https://img.icons8.com/windows/32/000000/chat-message.png" /></span>
+                                            </li>
                                         )
-                                 
-                                   
-                                })}
+
+
+                                    })}
+                                </div>
 
                             </div>
                         </When>
 
                         <When condition={Login.user.user.roleId == 2}>
-                            <div>
+                            <div className='list'>
                                 <h1>Patients List</h1>
-                                {list.map((patient,idx) => {
-                                   
+                                <div className="namespatient">
+                                    {list.map((patient, idx) => {
+
                                         return (
-                                            <li key={idx}  onClick={()=>handlestartChat(patient)}><span></span> {patient.userName}</li>
+                                            <li key={idx} onClick={() => handlestartChat(patient)}>
+                                                <span>{(patient.userName).toUpperCase()}</span> 
+                                            <span>
+                                                <img src="https://img.icons8.com/windows/32/000000/chat-message.png" />
+                                                </span>
+                                            </li>
                                         )
-                                    
-                                  
-                                })}
 
 
+                                    })}
 
+
+                                </div>
                             </div>
                         </When>
                     </When>
 
                     <When condition={state}>
-                        <Button onClick={endChat}>Exit Chat</Button>
-                        <Chat socket={socket} reciver = {reciver}/>
+                     
+                        <Chat socket={socket} reciver={reciver} endChat={endChat} />
                     </When>
                 </>
 
             }
 
-        </>
+        </div>
     )
 }

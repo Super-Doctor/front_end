@@ -38,8 +38,8 @@ export default function Appointments() {
         setPatients(result)
     } 
     return (
-        <div>
-            <h1>Appointments List</h1>
+        <div style={{marginTop:'100px',minHeight:'800px'}}>
+            <h1 style = {{textAlign:'center'}}>Appointments List</h1>
             <Table style={{textAlign:"center"}} striped bordered hover>
                 <thead>
                     <tr>
@@ -57,7 +57,7 @@ export default function Appointments() {
                                 <td>{idx + 1}</td>
                                 <td>{`${patient.patientName}`}</td>
                                 <td>{`${patient.Date}`}</td>
-                                <td><div onClick={() => deleteAppointment(patient)} ><span>❌</span></div></td>
+                                <td><div onClick={() => deleteAppointment(patient)} ><span style = {{cursor:'pointer'}}>❌</span></div></td>
 
                             </tr>
 

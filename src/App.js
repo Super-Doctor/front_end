@@ -23,6 +23,9 @@ import AboutUs from '../src/components/AboutUs/AboutUs'
 
 import Modals from './components/Departement/model'
 import UsersList from './components/Chat/UsersList';
+import RecordList from './components/Patients/RecordList';
+import { Login } from '@mui/icons-material';
+import './App.css';
 
 
 export default class App extends React.Component {
@@ -103,6 +106,12 @@ export default class App extends React.Component {
               <Route path="/chat">
                 <UsersList />
               </Route>
+            
+              {this.context.user && 
+               <Route path="/myRecords">
+               <RecordList patientId ={this.context.user.user.id}/>
+             </Route>}
+             
 
               <Route path="/patientslist">
                 {console.log(this.context.userCapability)};

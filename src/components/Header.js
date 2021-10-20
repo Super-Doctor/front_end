@@ -14,11 +14,11 @@ import menu from './slideimg/menu.png'
 
 function Header() {
   const Login = useContext(LoginContext)
- 
- 
+
+
 
   return (
-    <div>
+    <div id='headerBody'>
       <Router>
         <Navbar>
           <Container>
@@ -32,12 +32,12 @@ function Header() {
                 </Link>
               </div>
             </Navbar.Brand>
-            <Navbar.Brand className='title'  style={{color: "#AFB3F7", letterSpacing:'2px', marginLeft:'-590px', marginTop:'-20px'}} href="/">Super Doctor</Navbar.Brand>
+            <Navbar.Brand className='title' style={{ color: "#56749E", letterSpacing: '2px', marginLeft: '-590px', marginTop: '-20px' }} href="/">Super Doctor</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link className='navi' style={{color: "#AFB3F7", letterSpacing:'2px'}} href="/">Home</Nav.Link>
-              <Nav.Link className='navi' style={{color: "#AFB3F7", letterSpacing:'2px'}} href="/departments">Departments</Nav.Link>
-              <Nav.Link className='navi' style={{color: "#AFB3F7", letterSpacing:'2px'}} href="/aboutus">About Us</Nav.Link>
-              {Login.loggedIn &&  <Nav.Link  className='navi' style={{color: "#AFB3F7", letterSpacing:'2px'}} href="/chat">Chat</Nav.Link>}
+              <Nav.Link className='navi' style={{ color: "#56749E", letterSpacing: '2px' }} href="/">Home</Nav.Link>
+              <Nav.Link className='navi' style={{ color: "#56749E", letterSpacing: '2px' }} href="/departments">Departments</Nav.Link>
+              <Nav.Link className='navi' style={{ color: "#56749E", letterSpacing: '2px' }} href="/aboutus">About Us</Nav.Link>
+              {Login.loggedIn && <Nav.Link className='navi' style={{ color: "#56749E", letterSpacing: '2px' }} href="/chat">Chat</Nav.Link>}
 
 
             </Nav>
@@ -45,64 +45,70 @@ function Header() {
           </Container>
           <When condition={!Login.loggedIn && !Login.user}>
 
-            <Button style={{backgroundColor:'#03012C'}}  className='login' onClick={Login.toggleLogInState}>Login</Button>
+            <Button style={{ backgroundColor: '#56749E' }} className='login' onClick={Login.toggleLogInState}>Login</Button>
           </When>
 
           <When condition={Login.loggedIn && Login.user}>
 
 
-           
+
 
             {Login.user && Login.user.user.roleId == 1 &&
               <>
                 <div className="dropdown">
-                  <Dropdown className="menuButton"  style={{backgroundColor:'#03012C'}} >
-                    <Dropdown.Toggle id="dropdown-autoclose-true"  style={{backgroundColor:'#03012C'}}>
-                      <img className='userImg'
+                  <Dropdown className="menuButton"  >
+                    <Dropdown.Toggle id="dropdown-autoclose-true" style={{ backgroundColor: '#56749E' }}>
+                      {/* <img className='userImg'
                         src={menu}
                         height='25px'
                         width='20px'
-                      />
+                      /> */}
+                      <img src="https://img.icons8.com/windows/32/000000/user.png"/>
                     </Dropdown.Toggle>
+                    <div className='dropdownlist'>
+                      <Dropdown.Menu className='menuItems'>
+                        <Dropdown.Item className ='dropdownlistitem' href="/profile">{Login.user.user.userName.toUpperCase()}</Dropdown.Item>
+                        <Dropdown.Item className ='dropdownlistitem' href="/myRecords" >My Records</Dropdown.Item>
+                        <Dropdown.Item className ='dropdownlistitem' href="/patientsAppointment" >My Appointments</Dropdown.Item>
+
+                        <Button style={{ backgroundColor: '#56749E' }} className='logout' onClick={Login.logout}>Logout</Button>
+                      </Dropdown.Menu>
+                    </div>
+                  </Dropdown>
+
+                </div>
+              </>
+            }
+
+
+            {Login.user && Login.user.user.roleId == 2 &&
+              <>
+                <div className="dropdown">
+                  <Dropdown className="d-inline mx-2"  >
+                    <Dropdown.Toggle id="dropdown-autoclose-true" style={{ backgroundColor: '#56749E' }}>
+                      {/* <img className='userImg'
+                        src={menu}
+                        width='20px'
+                        height='25px'
+
+                      /> */}
+                      <img src="https://img.icons8.com/windows/32/000000/user.png"/>
+                    </Dropdown.Toggle>
+                    <div className ='dropdownlist'>
                     <Dropdown.Menu className='menuItems'>
-                      <Dropdown.Item href="/profile">{Login.user.user.userName.toUpperCase()}</Dropdown.Item>
-                      <Dropdown.Item href="/patientslist" >Patients List</Dropdown.Item>
-                      <Dropdown.Item  href="/patientsAppointment" >My Appointments</Dropdown.Item>
-                      <Dropdown.Item >Patient Item</Dropdown.Item>
-                      <Button  style={{backgroundColor:'#03012C'}} className='logout'  onClick={Login.logout}>Logout</Button>
+                      <Dropdown.Item className ='dropdownlistitem' href="/profile">{`Dr. ${Login.user.user.userName.toUpperCase()}`}</Dropdown.Item>
+                      <Dropdown.Item className ='dropdownlistitem' href="/appointments"> My Appointments </Dropdown.Item>
+                      <Dropdown.Item className ='dropdownlistitem' href="/patientslist" >Patients List</Dropdown.Item>
+
+                      <Button style={{ backgroundColor: '#56749E' }} className='logout' onClick={Login.logout}>Logout</Button>
                     </Dropdown.Menu>
+                    </div>
                   </Dropdown>
                 </div>
               </>
             }
 
 
-{Login.user && Login.user.user.roleId == 2 &&
-              <>
-                  <div className="dropdown">
-                    <Dropdown className="d-inline mx-2"  >
-                      <Dropdown.Toggle id="dropdown-autoclose-true"  style={{backgroundColor:'#03012C'}}>
-                        <img className='userImg'
-                          src={menu}
-                          width='20px'
-                          height='25px'
-
-                        />
-                      </Dropdown.Toggle>
-
-                      <Dropdown.Menu className='menuItems'>
-                        <Dropdown.Item href="/profile">{`Dr. ${Login.user.user.userName.toUpperCase()}`}</Dropdown.Item>
-                        <Dropdown.Item href="/appointments"> My Appointments </Dropdown.Item>
-                        <Dropdown.Item href="/patientslist" >Patients List</Dropdown.Item>
-                        
-                        <Button  style={{backgroundColor:'#03012C'}} className='logout' onClick={Login.logout}>Logout</Button>
-                      </Dropdown.Menu>
-                    </Dropdown>
-                  </div>
-              </>
-            }
-
-            
 
 
 

@@ -62,7 +62,7 @@ text-align: center;
    position: relative;
    top:170px;
    left:-170px;
-   margin-bottom: 100px;
+   margin-bottom: 200px;
 
  }
  .vision{
@@ -108,10 +108,13 @@ margin-top: -70px;
 /* values */
  .values{
 position: relative;
+width: 50%;
+display: block;
+margin-left: auto;
+margin-right: auto;
 top:150px;
 margin-bottom: 230px;
-margin-top: 100px;
-
+margin-top: 500px;
  }
  
 
@@ -119,7 +122,8 @@ margin-top: 100px;
  .ourValues{  
  letter-spacing: 4px;
  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
- margin-left:605px;
+ text-align: center;
+ /* margin-left:605px; */
  margin-bottom:30px;
 position: relative;
 top:40px;
@@ -127,8 +131,12 @@ top:40px;
 
  
  .valuesContent ul{
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
    list-style: circle;
-  margin-left: 575px;
+  /* margin-left: 575px; */
   margin-top: 50px;
   animation-duration: 4s;
   animation-fill-mode: both;
@@ -140,20 +148,26 @@ top:40px;
   display: block;
   letter-spacing: 2px;
   line-height: 35px;  
+  margin-left: 70px;
 
 }
 /* patient stories*/
+
+
 .stories{
   display: inline-flex;
+margin-left: 100px;
+  
   margin-bottom:50px;
   animation-duration: 6s;
   animation-fill-mode: both;
   animation-name:fadeInLeft ;
   animation-iteration-count:initial;
 
+
 }
 .patStories{
-  margin-left:323px;
+  text-align: center;
   letter-spacing: 4px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -161,15 +175,12 @@ top:40px;
 .storiesCard{
   margin-left:80px;
   margin-top: 50px;
-}
-
-.storiesCard {
- 
   animation-duration: 8s;
   animation-fill-mode: both;
   animation-name:fadeInLeft ;
-  
+  border-radius: 20px;
 }
+
 
 @keyframes fadeInLeft {
   0% {
@@ -233,7 +244,40 @@ margin-bottom: 100px;
   margin: 0 0 1.25rem;
 }
 
-.visionss{
+/* .visionss{
   padding-left: 500px;
   margin-bottom: 100px;
+  background-color: red;
+} */
+
+
+.visionss{
+  width: 100%;
+  animation-duration: 2s;
+animation-fill-mode: both;
+animation-name:fadeInLeft ;
+margin-bottom: 500px;
+}
+ .visionss p {
+   width: 60%;
+   float: right;
+   margin-top: -120px;
+   margin-right: 25px;
+   padding-top: 200px;
+   font-size: larger;
+   letter-spacing: 2px;
+   font-weight: 450;
+   line-height: 30px;  
+
+}
+
+.visionss h3{
+text-align: center;
+}
+ .visionss img {
+  width: 35%;
+  margin-top: 50px;
+  float: left;
+  margin-bottom: 3px;
+  padding-left: 50px;
 }

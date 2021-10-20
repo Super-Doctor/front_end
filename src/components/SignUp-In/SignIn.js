@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Form , Button } from 'react-bootstrap'
-import "./sign.scss";
+import "./sign.css";
 
 import useForm from '../../hooks/form';
 import { LoginContext } from '../../context/login';
@@ -17,11 +17,11 @@ export default function SignIn() {
     return (
         <div className = "signin">
 
-            <h1>Sign In Form</h1>
+            <h1 style = {{textAlign:'center'}}>Sign In Form</h1>
 
             <Form onSubmit={handleSubmit}>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-4" controlId="formBasicEmail">
                     <Form.Label>Email Address</Form.Label>
                     <Form.Control onChange={handleChange} type="email" name="email" placeholder="Enter email" />
                     <Form.Text className="text-muted">
@@ -29,7 +29,7 @@ export default function SignIn() {
                     </Form.Text>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Group className="mb-4" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control onChange={handleChange} type="password" name="password" placeholder="Password" />
                     <Form.Text className="text-muted">
@@ -37,11 +37,11 @@ export default function SignIn() {
                     </Form.Text>
                 </Form.Group>
    
-                <Button variant="primary" type="submit">
+                <Button style={{backgroundColor:'#56749E'}} type="submit">
                     Login
                 </Button>
 
-                <span> Don't have an account ? <a onClick = {login.toggleSignUpState}>Sign Up</a> </span>
+                <span> Don't have an account ? <a id='signupspan' onClick = {login.toggleSignUpState}>Sign Up</a> </span>
             </Form>
         </div>
     )

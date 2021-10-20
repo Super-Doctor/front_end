@@ -1,10 +1,11 @@
 /*header*/
 .title{
-    color: #03012C; 
+    
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       letter-spacing: 4px;
-      font-weight: 700;
+      font-weight: 500;
       margin-left: -500px;
+      font-size: large;
     }
       .navi :first-child {
         margin-left: 10;
@@ -18,7 +19,7 @@
         text-decoration: none;
         color: #03012C;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 1.2rem;
+        font-size: 1.9rem;
         font-weight: 700;
         font-size: 15px;
       }
@@ -56,14 +57,35 @@
     }
     
      .dropdown{
-       margin-right: 100px;
+       margin-right: 30px;
        background-color: rgb(238,238,238);
        
      }
+
+     .dropdownlistitem{
+       margin-bottom: 10px;}
+     .menuItems{
+      background-color: rgb(238,238,238);
+
+     }
+     .dropdownlist {
+      margin-left: -120px;
+      background-color: rgb(238,238,238);
+    }
      .login{
       margin-right: 100px;
      }
     
      .menuButton {
     color: #fff; 
+    }
+
+    #headerBody{
+      z-index: +100;
+      position: fixed;
+     width: 100%;
+    top: 0;
+    background-color: rgb(238,238,238);
+/* border-bottom: black solid 3px; */
+box-shadow: rgba(0, 0, 0, 0.411) 0px 2px 4px;
     }

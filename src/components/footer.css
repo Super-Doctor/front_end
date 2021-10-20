@@ -3,8 +3,10 @@ footer {
     width: 100%;
     height: max-content;
     padding: 4rem 8rem;
-    background-color: #03012C;
+    /* background-color: #03012C; */
+    background-color : #33516F;
     color: white;
+    margin-top: 100px;
   }
   footer img {
    height: 8rem;
