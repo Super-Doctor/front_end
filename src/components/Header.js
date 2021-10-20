@@ -33,16 +33,13 @@ function Header() {
                 </Link>
               </div>
             </Navbar.Brand>
-            <Navbar.Brand href="/">Super Doctor</Navbar.Brand>
+            <Navbar.Brand className='headerstyle' href="/">Super Doctor</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/departments">Departments</Nav.Link>
-              <Nav.Link href="/aboutus">About Us</Nav.Link>
-              {Login.loggedIn &&  <Nav.Link href="/chat">Chat</Nav.Link>}
+              <Nav.Link className="me-auto" href="/">Home</Nav.Link>
+              <Nav.Link className="me-auto" href="/departments">Departments</Nav.Link>
+              <Nav.Link className="me-auto" href="/aboutus">About Us</Nav.Link>
+              {Login.loggedIn &&  <Nav.Link className="me-auto" href="/chat">Chat</Nav.Link>}
              
-
-
-
             </Nav>
 
           </Container>
