@@ -1,0 +1,20 @@
+@import "react-slideshow-image/dist/styles.css";
+.each-slide > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 480px;
+  }
+  
+  .each-slide span {
+    padding: 20px;
+    font-size: 20px;
+    /* background: #979B9A; */
+    background: rgba(0,0,0,.5);
+    text-align: center;
+    margin-top: 300px;
+    /* opacity: .5; */
+    color: #fff;
+  }
+  
