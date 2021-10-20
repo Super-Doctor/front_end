@@ -11,7 +11,7 @@ export default function SignIn() {
     const { handleChange, handleSubmit } = useForm(handleLogin);
 
     function handleLogin(user) {
-        // console.log(user)
+        console.log('user from login' , user)
         login.login(user.email , user.password)
     }
     return (

@@ -13,7 +13,7 @@ const useForm = (callback) => {
 
   const handleChange = (event) => {
     event.persist();
-    setValues({});
+    
     setValues(values => ({ ...values, [event.target.name]: event.target.value }));
   };
 

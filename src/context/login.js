@@ -105,6 +105,7 @@ export default function LoginProvider(props) {
         .then((res) => {
           console.log('SignUp : ',res.data);
           response = res.data.patient;
+          
   
         })
         .catch((err) => {
