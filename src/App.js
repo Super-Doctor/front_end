@@ -32,9 +32,10 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { 
+    this.state = {
       show: false,
-       appointmentData: [] };
+      appointmentData: []
+    };
   }
 
   showmodal = () => {
@@ -60,11 +61,11 @@ export default class App extends React.Component {
   // static logincontext = useContext(LoginContext);
   handleClose = async () => {
     this.setState({
-        show: false,
-        
+      show: false,
+
 
     })
-}
+  }
   static contextType = LoginContext;
 
   // componentDidMount () {
@@ -79,7 +80,7 @@ export default class App extends React.Component {
   render() {
 
     return (
-      <div style={{backgroundColor:'#eee'}}>
+      <div style={{ backgroundColor: '#eee' }}>
 
         <Header />
         <Router >
@@ -88,46 +89,46 @@ export default class App extends React.Component {
               <Route exact path="/">
                 <Home />
               </Route>
-              <Route path="/profile">
+              <Route exact path="/profile">
                 <Profile />
               </Route>
-              <Route path="/aboutus">
+              <Route exact path="/aboutus">
                 <AboutUs />
               </Route>
-             
-              <Route path="/appointments">
+
+              <Route exact path="/appointments">
                 <Appointments />
               </Route>
 
-              <Route path="/patientsAppointment">
+              <Route exact path="/patientsAppointment">
                 <PatientsAppointments />
               </Route>
 
-              <Route path="/chat">
+              <Route exact path="/chat">
                 <UsersList />
               </Route>
-            
-              {this.context.user && 
-               <Route path="/myRecords">
-               <RecordList patientId ={this.context.user.user.id}/>
-             </Route>}
-             
 
-              <Route path="/patientslist">
+              {this.context.user &&
+                <Route exact path="/myRecords">
+                  <RecordList patientId={this.context.user.user.id} />
+                </Route>}
+
+
+              <Route exact path="/patientslist">
                 {console.log(this.context.userCapability)};
                 {this.context.userCapability > 4 ?
                   <>
                     <PatientsList />
-<div style={{position:'relative' , left:'600px' , color:'#33516F' }}>
-                    <button style={{ color:'white' ,backgroundColor:'#33516F'}}onClick={this.showmodal}>Add medical information
-                    </button>
+                    <div style={{ position: 'relative', left: '600px', color: '#33516F' }}>
+                      <button style={{ color: 'white', backgroundColor: '#33516F' }} onClick={this.showmodal}>Add medical information
+                      </button>
                     </div>
                     {this.state.show && (
                       <AddModal appointmentData={this.state.appointmentData}
                         // doctorId={this.props.users.id}
                         showmodalFunc={this.showmodal}
-                        showmodal={this.state.show} 
-                        handleClose={this.handleClose}/>
+                        showmodal={this.state.show}
+                        handleClose={this.handleClose} />
                     )}
 
                   </> : <PatientsList />}
@@ -152,7 +153,7 @@ export default class App extends React.Component {
               </Route>
 
 
-              <Route path="/departments">
+              <Route exact path="/departments">
 
                 <Departments />
 
