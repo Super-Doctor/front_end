@@ -1,0 +1,26 @@
+.card1{
+
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-size: xx-large;
+}
+.card1 :hover{
+
+   cursor: pointer;
+}
+
+#alldepartments{
+   margin-top: 100px;
+}
+
+.homeCards{
+   margin-left: 30px;
+   display: flex;
+   justify-content: space-between;
+   gap: 0.5rem;
+   flex-wrap: wrap;
+   margin-top: 3rem;
+}
+
+.h2 {
+   text-align: center;
+}

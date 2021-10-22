@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ephesis&family=Merriweather:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ephesis&family=Inconsolata:wght@200&family=Merriweather:wght@300&display=swap');
+
+
+.patientsCard{
+    /* border: solid 0.5px #56749E;  */
+ width: 450px;
+     margin-bottom: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-left: 5px; 
+   border-radius: 15px; 
+   /* background-color: #727477a8;  */
+   /* color: #33516F; */
+    /* display: contents;  */
+    /* margin: 0px 0px 2px 0px; */
+       word-wrap:normal;
+       display: inline-flex;
+
+       position: relative;
+cursor: pointer;
+       left:100px
+}
+.patientsCard:hover{
+    background-color: #56749ed0
+
+}
+/* tr td{
+    border: solid 0.5px #263b58;
+    border-radius: 3px;
+    background-color: #2f446193;
+    font-size: large;
+    color: black;
+    /* width:700px */
+    /* ; */
+/* }  */
+/* .patientsCard h5{
+    margin-left: 15px;
+    color: #DEF0F7;
+    font-family: 'Inconsolata', monospace;
+    font-weight: 700;
+} */
+/* .patientsCard p{
+    margin-left: 15px;
+    color: #DEF0F7;
+    font-family: 'Inconsolata', monospace;
+} */
+/* .patientsCard button{
+    margin-left: 15px;
+    color: #01295F;
+    background-color: #DEF0F7;
+    border-radius: 15px;
+    font-family: 'Bebas Neue', cursive;
+
+} */
+/* h1{
+    margin-left: 15px;
+    font-family: 'Bebas Neue', cursive;
+
+} */
